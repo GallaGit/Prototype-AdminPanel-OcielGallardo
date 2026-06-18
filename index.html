@@ -630,11 +630,140 @@
 
             <section id="error-logs" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 06</p>
-              <h3 class="mt-2 text-2xl font-bold">Error Logs</h3>
-              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Latest incidents with module context and severity tags.</p>
+              <h3 class="mt-2 text-2xl font-bold">Log de errores</h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Registro hardcodeado de incidentes recientes por agente y tipo de error.</p>
               <div class="mt-6 space-y-3">
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Support Triage · reply-drafting</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Fallback policy template missing for tier-3 request.</p><span class="mt-2 inline-flex rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">High</span></article>
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Policy Monitor · document-diff</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Revision batch exceeded configured comparison window.</p><span class="mt-2 inline-flex rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Critical</span></article>
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 08:12:04</p>
+                      <p class="mt-1 font-semibold">Support Triage</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Timeout al generar borrador en tickets de prioridad alta.</p>
+                      <span class="mt-2 inline-flex rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Critico</span>
+                    </div>
+                    <div class="relative inline-block text-left">
+                      <button type="button" data-error-menu-toggle="e1" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del error">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                        </svg>
+                      </button>
+                      <div data-error-menu="e1" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 08:27:31</p>
+                      <p class="mt-1 font-semibold">Pipeline Qualifier</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Fallo de validacion de schema en enrichment de lead.</p>
+                      <span class="mt-2 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Advertencia</span>
+                    </div>
+                    <div class="relative inline-block text-left">
+                      <button type="button" data-error-menu-toggle="e2" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del error">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                        </svg>
+                      </button>
+                      <div data-error-menu="e2" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 09:03:10</p>
+                      <p class="mt-1 font-semibold">Policy Monitor</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">No se encontro version previa para comparar documento.</p>
+                      <span class="mt-2 inline-flex rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Critico</span>
+                    </div>
+                    <div class="relative inline-block text-left">
+                      <button type="button" data-error-menu-toggle="e3" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del error">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                        </svg>
+                      </button>
+                      <div data-error-menu="e3" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 09:28:52</p>
+                      <p class="mt-1 font-semibold">Renewal Copilot</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Rate limit alcanzado al consultar senales de churn.</p>
+                      <span class="mt-2 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Advertencia</span>
+                    </div>
+                    <div class="relative inline-block text-left">
+                      <button type="button" data-error-menu-toggle="e4" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del error">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                        </svg>
+                      </button>
+                      <div data-error-menu="e4" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 10:06:19</p>
+                      <p class="mt-1 font-semibold">Support Triage</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Error de autenticacion al consultar base de conocimiento.</p>
+                      <span class="mt-2 inline-flex rounded-full bg-violet-100 px-3 py-1 text-xs font-semibold text-violet-700 dark:bg-violet-900/30 dark:text-violet-200">Seguridad</span>
+                    </div>
+                    <div class="relative inline-block text-left">
+                      <button type="button" data-error-menu-toggle="e5" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del error">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                        </svg>
+                      </button>
+                      <div data-error-menu="e5" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 10:31:47</p>
+                      <p class="mt-1 font-semibold">Pipeline Qualifier</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Respuesta vacia del proveedor externo de scoring.</p>
+                      <span class="mt-2 inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-200">Conectividad</span>
+                    </div>
+                    <div class="relative inline-block text-left">
+                      <button type="button" data-error-menu-toggle="e6" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del error">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                        </svg>
+                      </button>
+                      <div data-error-menu="e6" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
               </div>
             </section>
           </div>
@@ -762,6 +891,8 @@
         agentMenus: Array.from(document.querySelectorAll("[data-agent-menu]")),
         skillMenuToggles: Array.from(document.querySelectorAll("[data-skill-menu-toggle]")),
         skillMenus: Array.from(document.querySelectorAll("[data-skill-menu]")),
+        errorMenuToggles: Array.from(document.querySelectorAll("[data-error-menu-toggle]")),
+        errorMenus: Array.from(document.querySelectorAll("[data-error-menu]")),
         contractMenuToggles: Array.from(document.querySelectorAll("[data-contract-menu-toggle]")),
         contractMenus: Array.from(document.querySelectorAll("[data-contract-menu]")),
         contractDetailButtons: Array.from(document.querySelectorAll("[data-contract-detail]")),
@@ -887,6 +1018,10 @@
         elements.skillMenus.forEach((menu) => menu.classList.add("hidden"));
       }
 
+      function closeErrorMenus() {
+        elements.errorMenus.forEach((menu) => menu.classList.add("hidden"));
+      }
+
       function closeContractMenus() {
         elements.contractMenus.forEach((menu) => menu.classList.add("hidden"));
       }
@@ -922,6 +1057,18 @@
         }
         const shouldOpen = menu.classList.contains("hidden");
         closeSkillMenus();
+        if (shouldOpen) {
+          menu.classList.remove("hidden");
+        }
+      }
+
+      function toggleErrorMenu(menuId) {
+        const menu = elements.errorMenus.find((item) => item.dataset.errorMenu === menuId);
+        if (!menu) {
+          return;
+        }
+        const shouldOpen = menu.classList.contains("hidden");
+        closeErrorMenus();
         if (shouldOpen) {
           menu.classList.remove("hidden");
         }
@@ -1083,6 +1230,13 @@
         });
       });
 
+      elements.errorMenuToggles.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          toggleErrorMenu(button.dataset.errorMenuToggle);
+        });
+      });
+
       elements.contractMenuToggles.forEach((button) => {
         button.addEventListener("click", (event) => {
           event.stopPropagation();
@@ -1157,6 +1311,9 @@
         if (!event.target.closest("[data-skill-menu-toggle]") && !event.target.closest("[data-skill-menu]")) {
           closeSkillMenus();
         }
+        if (!event.target.closest("[data-error-menu-toggle]") && !event.target.closest("[data-error-menu]")) {
+          closeErrorMenus();
+        }
         if (!event.target.closest("[data-contract-menu-toggle]") && !event.target.closest("[data-contract-menu]")) {
           closeContractMenus();
         }
@@ -1167,6 +1324,7 @@
           closeUserMenus();
           closeAgentMenus();
           closeSkillMenus();
+          closeErrorMenus();
           closeContractMenus();
           closeUserModal();
           closeAgentConfigModal();
