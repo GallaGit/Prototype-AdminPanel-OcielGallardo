@@ -205,7 +205,7 @@
                             </svg>
                           </button>
                           <div data-user-menu="u1" class="user-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                            <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                            <button type="button" data-user-detail="u1" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                             <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
                           </div>
                         </div>
@@ -224,7 +224,7 @@
                             </svg>
                           </button>
                           <div data-user-menu="u2" class="user-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                            <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                            <button type="button" data-user-detail="u2" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                             <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
                           </div>
                         </div>
@@ -243,7 +243,7 @@
                             </svg>
                           </button>
                           <div data-user-menu="u3" class="user-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                            <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                            <button type="button" data-user-detail="u3" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                             <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
                           </div>
                         </div>
@@ -262,7 +262,7 @@
                             </svg>
                           </button>
                           <div data-user-menu="u4" class="user-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                            <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                            <button type="button" data-user-detail="u4" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                             <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
                           </div>
                         </div>
@@ -281,7 +281,7 @@
                             </svg>
                           </button>
                           <div data-user-menu="u5" class="user-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                            <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                            <button type="button" data-user-detail="u5" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                             <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
                           </div>
                         </div>
@@ -295,11 +295,139 @@
             <section id="agent-management" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 03</p>
               <h3 class="mt-2 text-2xl font-bold">Agent Management</h3>
-              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">List of active and draft agents with compact operational details.</p>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Gestion de agentes con estado, skills colapsables y configuracion por prompt.</p>
               <div class="mt-6 space-y-3">
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Support Triage</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Owner: Customer Care · Runs: 18,420 · Success: 97%</p></article>
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Pipeline Qualifier</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Owner: Revenue Ops · Runs: 12,680 · Success: 95%</p></article>
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Policy Monitor</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Owner: Risk Office · Runs: 4,820 · Success: 92%</p></article>
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold">Support Triage</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Propietario: Customer Care</p>
+                      <span class="mt-2 inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button type="button" data-agent-skills-toggle="a1" class="rounded-xl border border-stone-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-200">Skills</button>
+                      <div class="relative inline-block text-left">
+                        <button type="button" data-agent-menu-toggle="a1" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del agente">
+                          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                          </svg>
+                        </button>
+                        <div data-agent-menu="a1" class="agent-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                          <button type="button" data-agent-config="a1" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Configurar</button>
+                          <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-agent-skills="a1" class="grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                    <div class="overflow-hidden">
+                      <div class="mt-3 flex flex-wrap gap-2 pt-1">
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Intent Routing</span>
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Reply Drafting</span>
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Sentiment Scan</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold">Pipeline Qualifier</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Propietario: Revenue Ops</p>
+                      <span class="mt-2 inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button type="button" data-agent-skills-toggle="a2" class="rounded-xl border border-stone-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-200">Skills</button>
+                      <div class="relative inline-block text-left">
+                        <button type="button" data-agent-menu-toggle="a2" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del agente">
+                          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                          </svg>
+                        </button>
+                        <div data-agent-menu="a2" class="agent-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                          <button type="button" data-agent-config="a2" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Configurar</button>
+                          <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-agent-skills="a2" class="grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                    <div class="overflow-hidden">
+                      <div class="mt-3 flex flex-wrap gap-2 pt-1">
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Lead Scoring</span>
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">CRM Enrichment</span>
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Email Drafting</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold">Policy Monitor</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Propietario: Risk Office</p>
+                      <span class="mt-2 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Pausado</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button type="button" data-agent-skills-toggle="a3" class="rounded-xl border border-stone-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-200">Skills</button>
+                      <div class="relative inline-block text-left">
+                        <button type="button" data-agent-menu-toggle="a3" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del agente">
+                          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                          </svg>
+                        </button>
+                        <div data-agent-menu="a3" class="agent-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                          <button type="button" data-agent-config="a3" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Configurar</button>
+                          <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-agent-skills="a3" class="grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                    <div class="overflow-hidden">
+                      <div class="mt-3 flex flex-wrap gap-2 pt-1">
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Document Diff</span>
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Risk Tagging</span>
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Review Queue</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold">Renewal Copilot</p>
+                      <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Propietario: Customer Success</p>
+                      <span class="mt-2 inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Activo</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button type="button" data-agent-skills-toggle="a4" class="rounded-xl border border-stone-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-200">Skills</button>
+                      <div class="relative inline-block text-left">
+                        <button type="button" data-agent-menu-toggle="a4" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del agente">
+                          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                          </svg>
+                        </button>
+                        <div data-agent-menu="a4" class="agent-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                          <button type="button" data-agent-config="a4" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Configurar</button>
+                          <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-agent-skills="a4" class="grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
+                    <div class="overflow-hidden">
+                      <div class="mt-3 flex flex-wrap gap-2 pt-1">
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Risk Signals</span>
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Playbook Drafting</span>
+                        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-200">Account Priority</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
               </div>
             </section>
 
@@ -350,6 +478,60 @@
       </div>
     </div>
 
+    <div id="user-detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 px-4 py-6">
+      <div class="w-full max-w-xl rounded-3xl border border-stone-200 bg-white p-6 shadow-panel dark:border-slate-700 dark:bg-slate-900">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-600">Registro completo</p>
+            <h4 id="modal-user-name" class="mt-2 text-2xl font-bold">Usuario</h4>
+          </div>
+          <button id="close-user-modal" type="button" class="rounded-xl border border-stone-200 px-3 py-2 text-sm font-semibold text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300">Cerrar</button>
+        </div>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Email</p>
+            <p id="modal-user-email" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Plan</p>
+            <p id="modal-user-plan" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Estado</p>
+            <p id="modal-user-status" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Rol</p>
+            <p id="modal-user-role" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Empresa</p>
+            <p id="modal-user-company" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Ultimo acceso</p>
+            <p id="modal-user-last-access" class="mt-2 font-semibold">-</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="agent-config-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 px-4 py-6">
+      <div class="w-full max-w-2xl rounded-3xl border border-stone-200 bg-white p-6 shadow-panel dark:border-slate-700 dark:bg-slate-900">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-600">Configuracion del agente</p>
+            <h4 id="modal-agent-name" class="mt-2 text-2xl font-bold">Agente</h4>
+          </div>
+          <button id="close-agent-modal" type="button" class="rounded-xl border border-stone-200 px-3 py-2 text-sm font-semibold text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300">Cerrar</button>
+        </div>
+        <div class="mt-6">
+          <p class="text-sm font-semibold">System Prompt</p>
+          <textarea id="modal-agent-prompt" class="mt-3 h-56 w-full rounded-2xl border border-stone-200 bg-stone-50 p-4 text-sm text-slate-700 outline-none focus:border-brand-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-brand-500"></textarea>
+        </div>
+      </div>
+    </div>
+
     <script>
       const state = {
         sidebarOpen: false,
@@ -365,13 +547,63 @@
         navLinks: Array.from(document.querySelectorAll(".nav-link")),
         userMenuToggles: Array.from(document.querySelectorAll("[data-user-menu-toggle]")),
         userMenus: Array.from(document.querySelectorAll("[data-user-menu]")),
+        agentSkillToggles: Array.from(document.querySelectorAll("[data-agent-skills-toggle]")),
+        agentSkillPanels: Array.from(document.querySelectorAll("[data-agent-skills]")),
+        agentMenuToggles: Array.from(document.querySelectorAll("[data-agent-menu-toggle]")),
+        agentMenus: Array.from(document.querySelectorAll("[data-agent-menu]")),
+        agentConfigButtons: Array.from(document.querySelectorAll("[data-agent-config]")),
+        userDetailButtons: Array.from(document.querySelectorAll("[data-user-detail]")),
+        userDetailModal: document.getElementById("user-detail-modal"),
+        closeUserModalButton: document.getElementById("close-user-modal"),
+        agentConfigModal: document.getElementById("agent-config-modal"),
+        closeAgentModalButton: document.getElementById("close-agent-modal"),
+        modalAgentName: document.getElementById("modal-agent-name"),
+        modalAgentPrompt: document.getElementById("modal-agent-prompt"),
+        modalUserName: document.getElementById("modal-user-name"),
+        modalUserEmail: document.getElementById("modal-user-email"),
+        modalUserPlan: document.getElementById("modal-user-plan"),
+        modalUserStatus: document.getElementById("modal-user-status"),
+        modalUserRole: document.getElementById("modal-user-role"),
+        modalUserCompany: document.getElementById("modal-user-company"),
+        modalUserLastAccess: document.getElementById("modal-user-last-access"),
         sectionTitle: document.getElementById("current-section-title"),
         themeToggle: document.getElementById("theme-toggle"),
         mainContent: document.getElementById("main-content")
       };
 
+      const userRecords = {
+        u1: { name: "Maya Patel", email: "maya.patel@nova.io", plan: "Enterprise", status: "Activo", role: "Operations Lead", company: "Nova Industries", lastAccess: "2 min ago" },
+        u2: { name: "Daniel Cruz", email: "daniel.cruz@nova.io", plan: "Pro", status: "Pendiente", role: "Support Manager", company: "Nova Industries", lastAccess: "12 min ago" },
+        u3: { name: "Lena Brooks", email: "lena.brooks@nova.io", plan: "Business", status: "Activo", role: "Revenue Ops", company: "Nova Industries", lastAccess: "25 min ago" },
+        u4: { name: "Victor Huang", email: "victor.huang@nova.io", plan: "Starter", status: "Suspendido", role: "Compliance Analyst", company: "Nova Industries", lastAccess: "Ayer" },
+        u5: { name: "Ari Stone", email: "ari.stone@nova.io", plan: "Enterprise", status: "Activo", role: "Platform Admin", company: "Nova Industries", lastAccess: "Ahora" }
+      };
+
+      const agentPrompts = {
+        a1: {
+          name: "Support Triage",
+          prompt: "You are Support Triage. Classify incoming tickets by urgency, suggest first response drafts, and escalate only if confidence drops below policy threshold."
+        },
+        a2: {
+          name: "Pipeline Qualifier",
+          prompt: "You are Pipeline Qualifier. Analyze lead context, assign score bands, and recommend next-best action for revenue representatives."
+        },
+        a3: {
+          name: "Policy Monitor",
+          prompt: "You are Policy Monitor. Compare policy revisions, detect high-risk deltas, and summarize required compliance actions for legal review."
+        },
+        a4: {
+          name: "Renewal Copilot",
+          prompt: "You are Renewal Copilot. Evaluate renewal risk indicators, propose retention playbooks, and prioritize accounts by business impact."
+        }
+      };
+
       function closeUserMenus() {
         elements.userMenus.forEach((menu) => menu.classList.add("hidden"));
+      }
+
+      function closeAgentMenus() {
+        elements.agentMenus.forEach((menu) => menu.classList.add("hidden"));
       }
 
       function toggleUserMenu(menuId) {
@@ -384,6 +616,70 @@
         if (shouldOpen) {
           menu.classList.remove("hidden");
         }
+      }
+
+      function toggleAgentMenu(menuId) {
+        const menu = elements.agentMenus.find((item) => item.dataset.agentMenu === menuId);
+        if (!menu) {
+          return;
+        }
+        const shouldOpen = menu.classList.contains("hidden");
+        closeAgentMenus();
+        if (shouldOpen) {
+          menu.classList.remove("hidden");
+        }
+      }
+
+      function toggleAgentSkills(agentId) {
+        const panel = elements.agentSkillPanels.find((item) => item.dataset.agentSkills === agentId);
+        if (!panel) {
+          return;
+        }
+        const expanded = panel.classList.contains("grid-rows-[1fr]");
+        if (expanded) {
+          panel.classList.remove("grid-rows-[1fr]");
+          panel.classList.add("grid-rows-[0fr]");
+          return;
+        }
+        panel.classList.remove("grid-rows-[0fr]");
+        panel.classList.add("grid-rows-[1fr]");
+      }
+
+      function closeUserModal() {
+        elements.userDetailModal.classList.add("hidden");
+        elements.userDetailModal.classList.remove("flex");
+      }
+
+      function closeAgentConfigModal() {
+        elements.agentConfigModal.classList.add("hidden");
+        elements.agentConfigModal.classList.remove("flex");
+      }
+
+      function openUserModal(userId) {
+        const user = userRecords[userId];
+        if (!user) {
+          return;
+        }
+        elements.modalUserName.textContent = user.name;
+        elements.modalUserEmail.textContent = user.email;
+        elements.modalUserPlan.textContent = user.plan;
+        elements.modalUserStatus.textContent = user.status;
+        elements.modalUserRole.textContent = user.role;
+        elements.modalUserCompany.textContent = user.company;
+        elements.modalUserLastAccess.textContent = user.lastAccess;
+        elements.userDetailModal.classList.remove("hidden");
+        elements.userDetailModal.classList.add("flex");
+      }
+
+      function openAgentConfigModal(agentId) {
+        const agent = agentPrompts[agentId];
+        if (!agent) {
+          return;
+        }
+        elements.modalAgentName.textContent = agent.name;
+        elements.modalAgentPrompt.value = agent.prompt;
+        elements.agentConfigModal.classList.remove("hidden");
+        elements.agentConfigModal.classList.add("flex");
       }
 
       function applyTheme() {
@@ -436,15 +732,68 @@
         });
       });
 
+      elements.agentMenuToggles.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          toggleAgentMenu(button.dataset.agentMenuToggle);
+        });
+      });
+
+      elements.agentSkillToggles.forEach((button) => {
+        button.addEventListener("click", () => {
+          toggleAgentSkills(button.dataset.agentSkillsToggle);
+        });
+      });
+
+      elements.userDetailButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          closeUserMenus();
+          openUserModal(button.dataset.userDetail);
+        });
+      });
+
+      elements.agentConfigButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          closeAgentMenus();
+          openAgentConfigModal(button.dataset.agentConfig);
+        });
+      });
+
+      elements.closeUserModalButton.addEventListener("click", () => {
+        closeUserModal();
+      });
+
+      elements.closeAgentModalButton.addEventListener("click", () => {
+        closeAgentConfigModal();
+      });
+
+      elements.userDetailModal.addEventListener("click", (event) => {
+        if (event.target === elements.userDetailModal) {
+          closeUserModal();
+        }
+      });
+
+      elements.agentConfigModal.addEventListener("click", (event) => {
+        if (event.target === elements.agentConfigModal) {
+          closeAgentConfigModal();
+        }
+      });
+
       document.addEventListener("click", (event) => {
         if (!event.target.closest("[data-user-menu-toggle]") && !event.target.closest("[data-user-menu]")) {
           closeUserMenus();
+        }
+        if (!event.target.closest("[data-agent-menu-toggle]") && !event.target.closest("[data-agent-menu]")) {
+          closeAgentMenus();
         }
       });
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
           closeUserMenus();
+          closeAgentMenus();
+          closeUserModal();
+          closeAgentConfigModal();
         }
       });
 
