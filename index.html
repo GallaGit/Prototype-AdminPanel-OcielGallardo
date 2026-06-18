@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" class="h-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgentHub Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      tailwind = {
+        config: {
+          darkMode: "class",
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Manrope", "sans-serif"]
+              },
+              colors: {
+                brand: {
+                  50: "#effbfd",
+                  100: "#d5f4f8",
+                  500: "#1d9eb5",
+                  600: "#177f93",
+                  700: "#176677",
+                  900: "#194552"
+                }
+              },
+              boxShadow: {
+                panel: "0 16px 40px -24px rgba(15, 23, 42, 0.28)"
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="h-full bg-stone-100 font-sans text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.08),_transparent_35%)] dark:bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.18),_transparent_35%)]">
+      <div id="mobile-backdrop" class="fixed inset-0 z-30 hidden bg-slate-950/60 lg:hidden"></div>
+
+      <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col border-r border-stone-200 bg-white/95 px-4 py-5 shadow-panel transition-transform duration-300 dark:border-slate-800 dark:bg-slate-900/95 lg:translate-x-0">
+        <div class="flex items-center justify-between border-b border-stone-200 pb-4 dark:border-slate-800">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-600">AgentHub</p>
+            <h1 class="mt-2 text-2xl font-bold">Admin Console</h1>
+          </div>
+          <button id="close-sidebar" type="button" class="rounded-xl border border-stone-200 px-3 py-2 text-xs font-semibold text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300 lg:hidden">Close</button>
+        </div>
+
+        <div class="mt-5 rounded-2xl border border-stone-200 bg-brand-50/70 p-4 dark:border-slate-700 dark:bg-slate-800/70">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700 dark:text-brand-200">Workspace</p>
+          <p class="mt-2 font-semibold">Nova Industries</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Enterprise Lease</p>
+        </div>
+
+        <nav id="sidebar-nav" class="mt-6 space-y-2" aria-label="Primary navigation">
+          <button data-nav-target="dashboard" class="nav-link flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition">
+            <span class="font-semibold">Dashboard</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">01</span>
+          </button>
+          <button data-nav-target="user-management" class="nav-link flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition">
+            <span class="font-semibold">User Management</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">02</span>
+          </button>
+          <button data-nav-target="agent-management" class="nav-link flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition">
+            <span class="font-semibold">Agent Management</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">03</span>
+          </button>
+          <button data-nav-target="skills" class="nav-link flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition">
+            <span class="font-semibold">Skills</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">04</span>
+          </button>
+          <button data-nav-target="agent-rentals" class="nav-link flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition">
+            <span class="font-semibold">Agent Rentals</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">05</span>
+          </button>
+          <button data-nav-target="error-logs" class="nav-link flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition">
+            <span class="font-semibold">Error Logs</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">06</span>
+          </button>
+        </nav>
+
+        <div class="mt-auto rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+          <p class="font-semibold">Ociel Gallardo</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Platform Admin</p>
+        </div>
+      </aside>
+
+      <div class="flex min-w-0 flex-1 flex-col lg:pl-72">
+        <header class="sticky top-0 z-20 border-b border-stone-200 bg-stone-100/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
+          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-4 lg:px-8">
+            <div class="flex items-center gap-3">
+              <button id="open-sidebar" type="button" class="rounded-2xl border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:hidden">Menu</button>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-600">Current Section</p>
+                <h2 id="current-section-title" class="mt-1 text-2xl font-bold">Dashboard</h2>
+              </div>
+            </div>
+            <button id="theme-toggle" type="button" class="rounded-2xl border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">Dark mode</button>
+          </div>
+        </header>
+
+        <main id="main-content" class="h-[calc(100vh-89px)] overflow-y-auto px-4 py-6 lg:px-8 lg:py-8">
+          <div class="mx-auto max-w-7xl space-y-8">
+            <section id="dashboard" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 01</p>
+              <h3 class="mt-2 text-2xl font-bold">Dashboard</h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Executive overview with metrics and weekly performance placeholder.</p>
+              <div class="mt-6 grid gap-4 md:grid-cols-2">
+                <article class="rounded-2xl bg-brand-50 p-5 dark:bg-brand-900/30"><p class="text-sm font-semibold text-brand-700 dark:text-brand-200">Total Users</p><p class="mt-2 text-3xl font-bold">42</p></article>
+                <article class="rounded-2xl bg-emerald-50 p-5 dark:bg-emerald-900/30"><p class="text-sm font-semibold text-emerald-700 dark:text-emerald-200">Active Agents</p><p class="mt-2 text-3xl font-bold">18</p></article>
+                <article class="rounded-2xl bg-amber-50 p-5 dark:bg-amber-900/30"><p class="text-sm font-semibold text-amber-700 dark:text-amber-200">Skills Active</p><p class="mt-2 text-3xl font-bold">33</p></article>
+                <article class="rounded-2xl bg-rose-50 p-5 dark:bg-rose-900/30"><p class="text-sm font-semibold text-rose-700 dark:text-rose-200">Monthly Revenue</p><p class="mt-2 text-3xl font-bold">$88,240</p></article>
+              </div>
+              <div class="mt-6 rounded-2xl border border-dashed border-stone-300 bg-stone-50 p-6 dark:border-slate-700 dark:bg-slate-950/60">
+                <p class="text-sm font-semibold">Weekly Activity Placeholder</p>
+                <div class="mt-4 grid grid-cols-7 gap-2">
+                  <div class="h-24 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
+                  <div class="h-28 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
+                  <div class="h-20 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
+                  <div class="h-32 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
+                  <div class="h-36 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
+                  <div class="h-30 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
+                  <div class="h-40 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
+                </div>
+              </div>
+            </section>
+
+            <section id="user-management" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 02</p>
+              <h3 class="mt-2 text-2xl font-bold">User Management</h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Tenant users, role assignments, and quick status checks.</p>
+              <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 dark:border-slate-700">
+                <table class="min-w-full divide-y divide-stone-200 text-sm dark:divide-slate-700">
+                  <thead class="bg-stone-50 dark:bg-slate-800">
+                    <tr>
+                      <th class="px-4 py-3 text-left font-semibold">Name</th>
+                      <th class="px-4 py-3 text-left font-semibold">Role</th>
+                      <th class="px-4 py-3 text-left font-semibold">Status</th>
+                      <th class="px-4 py-3 text-left font-semibold">Last Activity</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-stone-200 dark:divide-slate-700">
+                    <tr><td class="px-4 py-3">Maya Patel</td><td class="px-4 py-3">Operations Lead</td><td class="px-4 py-3"><span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200">Active</span></td><td class="px-4 py-3">2 min ago</td></tr>
+                    <tr><td class="px-4 py-3">Daniel Cruz</td><td class="px-4 py-3">Support Manager</td><td class="px-4 py-3"><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">Pending</span></td><td class="px-4 py-3">12 min ago</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section id="agent-management" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 03</p>
+              <h3 class="mt-2 text-2xl font-bold">Agent Management</h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">List of active and draft agents with compact operational details.</p>
+              <div class="mt-6 space-y-3">
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Support Triage</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Owner: Customer Care · Runs: 18,420 · Success: 97%</p></article>
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Pipeline Qualifier</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Owner: Revenue Ops · Runs: 12,680 · Success: 95%</p></article>
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Policy Monitor</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Owner: Risk Office · Runs: 4,820 · Success: 92%</p></article>
+              </div>
+            </section>
+
+            <section id="skills" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 04</p>
+              <h3 class="mt-2 text-2xl font-bold">Skills</h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Catalog of reusable capabilities available for leased agents.</p>
+              <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Intent Routing</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Classifies support requests and routes queues.</p></article>
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">CRM Enrichment</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Completes records before handoff workflows.</p></article>
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Risk Tagging</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Flags compliance-sensitive clauses.</p></article>
+              </div>
+            </section>
+
+            <section id="agent-rentals" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 05</p>
+              <h3 class="mt-2 text-2xl font-bold">Agent Rentals</h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Commercial contracts with included skills and monthly charges.</p>
+              <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 dark:border-slate-700">
+                <table class="min-w-full divide-y divide-stone-200 text-sm dark:divide-slate-700">
+                  <thead class="bg-stone-50 dark:bg-slate-800">
+                    <tr>
+                      <th class="px-4 py-3 text-left font-semibold">Client</th>
+                      <th class="px-4 py-3 text-left font-semibold">Agent</th>
+                      <th class="px-4 py-3 text-left font-semibold">Renewal</th>
+                      <th class="px-4 py-3 text-left font-semibold">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-stone-200 dark:divide-slate-700">
+                    <tr><td class="px-4 py-3">Nova Industries</td><td class="px-4 py-3">Support Triage</td><td class="px-4 py-3">2026-07-15</td><td class="px-4 py-3">$7,100</td></tr>
+                    <tr><td class="px-4 py-3">Northwind Retail</td><td class="px-4 py-3">Pipeline Qualifier</td><td class="px-4 py-3">2026-08-03</td><td class="px-4 py-3">$5,900</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section id="error-logs" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 06</p>
+              <h3 class="mt-2 text-2xl font-bold">Error Logs</h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Latest incidents with module context and severity tags.</p>
+              <div class="mt-6 space-y-3">
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Support Triage · reply-drafting</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Fallback policy template missing for tier-3 request.</p><span class="mt-2 inline-flex rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">High</span></article>
+                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700"><p class="font-semibold">Policy Monitor · document-diff</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Revision batch exceeded configured comparison window.</p><span class="mt-2 inline-flex rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-900/30 dark:text-rose-200">Critical</span></article>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      const state = {
+        sidebarOpen: false,
+        theme: localStorage.getItem("agenthub-theme") || "light",
+        currentSection: "dashboard"
+      };
+
+      const elements = {
+        sidebar: document.getElementById("sidebar"),
+        mobileBackdrop: document.getElementById("mobile-backdrop"),
+        openSidebar: document.getElementById("open-sidebar"),
+        closeSidebar: document.getElementById("close-sidebar"),
+        navLinks: Array.from(document.querySelectorAll(".nav-link")),
+        sectionTitle: document.getElementById("current-section-title"),
+        themeToggle: document.getElementById("theme-toggle"),
+        mainContent: document.getElementById("main-content")
+      };
+
+      function applyTheme() {
+        document.documentElement.classList.toggle("dark", state.theme === "dark");
+        elements.themeToggle.textContent = state.theme === "dark" ? "Light mode" : "Dark mode";
+      }
+
+      function setSidebar(open) {
+        state.sidebarOpen = open;
+        elements.sidebar.classList.toggle("translate-x-0", open);
+        elements.sidebar.classList.toggle("-translate-x-full", !open);
+        elements.mobileBackdrop.classList.toggle("hidden", !open);
+      }
+
+      function updateActiveNav(sectionId) {
+        state.currentSection = sectionId;
+        elements.sectionTitle.textContent = document.getElementById(sectionId)?.querySelector("h3")?.textContent || "Dashboard";
+
+        elements.navLinks.forEach((link) => {
+          const active = link.dataset.navTarget === sectionId;
+          link.className = active
+            ? "nav-link flex w-full items-center justify-between rounded-2xl border border-brand-200 bg-brand-50 px-4 py-3 text-left text-brand-900 transition dark:border-brand-700 dark:bg-brand-900/30 dark:text-brand-100"
+            : "nav-link flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-slate-700 transition hover:bg-stone-100 dark:text-slate-200 dark:hover:bg-slate-800";
+        });
+      }
+
+      elements.openSidebar.addEventListener("click", () => setSidebar(true));
+      elements.closeSidebar.addEventListener("click", () => setSidebar(false));
+      elements.mobileBackdrop.addEventListener("click", () => setSidebar(false));
+
+      elements.themeToggle.addEventListener("click", () => {
+        state.theme = state.theme === "dark" ? "light" : "dark";
+        localStorage.setItem("agenthub-theme", state.theme);
+        applyTheme();
+      });
+
+      elements.navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const targetId = link.dataset.navTarget;
+          document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          updateActiveNav(targetId);
+          setSidebar(false);
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (visible?.target?.id) {
+            updateActiveNav(visible.target.id);
+          }
+        },
+        {
+          root: elements.mainContent,
+          threshold: [0.3, 0.6, 0.8]
+        }
+      );
+
+      ["dashboard", "user-management", "agent-management", "skills", "agent-rentals", "error-logs"].forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) {
+          observer.observe(section);
+        }
+      });
+
+      applyTheme();
+      updateActiveNav("dashboard");
+      setSidebar(false);
+    </script>
+  </body>
+</html>
