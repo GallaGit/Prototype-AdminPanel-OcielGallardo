@@ -1,667 +1,354 @@
 # AgentHub Frontend Specification
 
-## 1. Vision
+## 1. Product Overview
 
-AgentHub is a SaaS dashboard prototype for companies that rent configurable AI agents built from reusable skills. This frontend is a visual reference for future backend developers and stakeholders. The prototype must communicate product positioning, information architecture, and interactive states without relying on any server, API, or persistence layer.
+### Que es AgentHub
 
-The UI should feel production-oriented rather than tutorial-grade: dense enough for SaaS users, clear enough for demos, and polished enough to validate layout, hierarchy, and component behavior.
+AgentHub es una plataforma SaaS donde empresas alquilan agentes de IA configurables mediante skills reutilizables. Cada agente representa una capacidad lista para usar dentro de una empresa.
 
-## 2. Project Goal
+### Que problema resuelve
 
-Build a visually complete static frontend using only:
+AgentHub centraliza la supervision de agentes, usuarios, skills, contratos y errores en una sola interfaz. El panel evita que un administrador tenga que revisar multiples sistemas o estados dispersos.
 
-- HTML
+### Quien es el administrador que utilizara el panel
+
+El usuario principal es un administrador interno de una empresa cliente. Puede ser un operations manager, un admin tecnico o un lider de automatizacion. Necesita monitorear estado, uso, configuracion visual y contratos sin depender de backend real.
+
+### Objetivos del dashboard
+
+- Mostrar el estado general del negocio de forma inmediata.
+- Permitir navegar entre las 6 areas principales del producto.
+- Simular interacciones reales con dropdowns, modales y listas colapsables.
+- Servir como referencia visual para futuros desarrolladores backend.
+
+## 2. Technology Stack & Constraints
+
+La implementacion debe usar exclusivamente:
+
+- HTML5
 - TailwindCSS via CDN
 - Vanilla JavaScript
 
-Constraints:
+Restricciones explicitas:
 
-- No backend
-- No APIs
-- No frameworks
-- No build step
-- All data hardcoded in JavaScript
-- All interactions simulated on the client side
+- Sin React
+- Sin Vue
+- Sin Angular
+- Sin jQuery
+- Sin TypeScript
+- Sin backend
+- Sin API calls
+- Datos completamente hardcodeados
 
-Primary objective:
+Implicaciones practicas:
 
-- Provide a high-fidelity dashboard prototype that future backend developers can use as a reference for screens, data shapes, and UI states.
+- Todo debe vivir en una sola pagina.
+- Todas las interacciones deben resolverse en el navegador.
+- Ningun boton visible puede quedar sin comportamiento.
 
-## 3. Deliverables
+## 3. Layout Specification
 
-The implementation phase should produce the following minimum deliverables:
+### Sidebar
 
-- A main dashboard entry page
-- A reusable sidebar/topbar SaaS layout
-- A hardcoded dataset representing agents, skills, teams, usage metrics, and invoices
-- Interactive filtering/searching/sorting using Vanilla JavaScript
-- At least one modal or drawer for detailed agent inspection
-- Responsive behavior for desktop, tablet, and mobile
+- Navegacion persistente.
+- Siempre visible en desktop.
+- Contiene las 6 secciones: Dashboard, User Management, Agent Management, Skills, Agent Rentals y Error Logs.
+- Estado activo resaltado con color, fondo e indicador visual.
+- En mobile se comporta como panel overlay.
 
-Recommended file structure for implementation:
+### Topbar
 
-- index.html
-- styles.css
-- app.js
+- Muestra el titulo de la seccion actual.
+- Incluye toggle Dark/Light Mode.
+- Puede incluir una accion global o una busqueda simple si ayuda a la demo.
+- Debe mantenerse estable en desktop y mobile.
 
-Optional additional files only if needed:
+### Main Content Area
 
-- assets/* for logos or decorative SVGs
+- Responsive.
+- Padding consistente en todas las secciones.
+- Scroll independiente cuando el layout lo permita.
+- Cada seccion debe sentirse separada mediante espacio, fondo o tarjetas.
 
-## 4. Product Narrative
+## 4. Section Specifications
 
-The product story the UI must communicate:
+Cada requisito de seccion debe definirse por componente, contenido, apariencia y comportamiento.
 
-- Companies subscribe to AgentHub.
-- Each company can browse and activate AI agents.
-- Each agent is assembled from skills such as summarization, ticket triage, CRM enrichment, onboarding, and reporting.
-- Admins can inspect usage, seat allocation, status, and estimated monthly cost.
-- Teams can review available skills, agent health, and recent operational activity.
+### Dashboard
 
-The prototype is not a consumer marketplace. It is a B2B admin panel.
+#### Especificacion 1
 
-## 5. UX Direction
+- Componente: grid responsive 2x2 de metricas.
+- Contenido: total de usuarios, agentes activos, skills activas e ingresos mensuales.
+- Apariencia: tarjetas con icono, etiqueta y valor principal. Cada tarjeta usa un color diferenciador.
+- Comportamiento: en desktop se ve como grid 2x2 y en mobile baja a una columna.
 
-### Tone
+#### Especificacion 2
 
-- Professional
-- Modern
-- High information density
-- Premium SaaS
-- Calm but not bland
+- Componente: tarjetas de metricas.
+- Contenido: icono, nombre de la metrica, valor y texto secundario opcional.
+- Apariencia: superficie clara, borde suave, sombra ligera y valor con mayor peso visual.
+- Comportamiento: hover sutil y sin desplazar el layout.
 
-### Visual Style
+#### Especificacion 3
 
-- Light-first interface
-- Strong card structure
-- Soft gradients in hero/summary areas
-- Distinct accent color for status and calls to action
-- Rounded corners, subtle borders, layered surfaces
+- Componente: area placeholder para grafico semanal.
+- Contenido: titulo y grafico simulado de actividad semanal.
+- Apariencia: panel ancho con barras construidas con HTML y Tailwind.
+- Comportamiento: no depende de librerias ni APIs, pero debe parecer un grafico funcional.
 
-### Avoid
+### User Management
 
-- Generic beginner dashboard look
-- Default Tailwind-only appearance without customization
-- Excessive animation
-- Fake charts rendered as static images
+#### Especificacion 1
 
-## 6. Design System Specification
+- Componente: tabla de usuarios.
+- Contenido: nombre, email, rol, empresa, estado y ultima actividad.
+- Apariencia: tabla administrativa limpia con encabezados visibles y badges de estado.
+- Comportamiento: en pantallas pequenas puede usar scroll horizontal o tarjetas apiladas.
 
-### Color Tokens
+#### Especificacion 2
 
-Define color intent through CSS variables and use them consistently.
+- Componente: dropdown por fila.
+- Contenido: acciones como View Details, Suspend User y Reset Access.
+- Apariencia: trigger compacto con menu flotante alineado a la fila.
+- Comportamiento: se abre por click y se cierra por click externo, Escape o al elegir una accion.
 
-Suggested palette intent:
+#### Especificacion 3
 
-- Background base: warm off-white or cool mist
-- Surface: white
-- Surface secondary: slightly tinted panel
-- Primary accent: deep teal, blue-green, or cobalt
-- Secondary accent: amber or coral for emphasis
-- Success: green
-- Warning: amber
-- Danger: red
-- Text primary: near-slate
-- Text secondary: muted slate
-- Border: low-contrast neutral
+- Componente: modal de detalle.
+- Contenido: perfil del usuario, agentes asignados y actividad reciente.
+- Apariencia: modal centrado con backdrop oscuro y boton de cierre visible.
+- Comportamiento: cierre por boton, backdrop y tecla Escape.
 
-The final implementation may refine exact hex values, but the following contrast rules are mandatory:
+### Agent Management
 
-- Primary text must meet readable contrast on white cards.
-- Accent buttons must have strong contrast.
-- Status pills must be distinguishable by both color and text.
+#### Especificacion 1
+
+- Componente: lista de agentes.
+- Contenido: nombre, categoria, owner, estado, resumen y metricas basicas.
+- Apariencia: tarjetas o filas enriquecidas con badges y acciones.
+- Comportamiento: cada agente debe permitir ver skills o abrir configuracion.
+
+#### Especificacion 2
+
+- Componente: skills colapsables.
+- Contenido: lista de skills asociadas al agente.
+- Apariencia: bloque secundario con chips o badges.
+- Comportamiento: expansion y colapso con animacion simple.
+
+#### Especificacion 3
+
+- Componente: dropdown de acciones y modal de configuracion.
+- Contenido: acciones como Configure, Pause Agent y Duplicate, mas detalle visual del agente.
+- Apariencia: dropdown compacto y modal ancho con bloques de configuracion.
+- Comportamiento: el modal abre desde una accion del dropdown y se cierra con los patrones globales.
+
+### Skills
+
+#### Especificacion 1
+
+- Componente: catalogo de skills.
+- Contenido: nombre, categoria, descripcion y nivel de uso.
+- Apariencia: grid o lista de tarjetas compactas con icono y badge.
+- Comportamiento: reflow responsive sin perder legibilidad.
+
+#### Especificacion 2
+
+- Componente: explicacion contextual.
+- Contenido: texto breve que explique para que sirve cada skill.
+- Apariencia: descripcion secundaria debajo del nombre.
+- Comportamiento: siempre visible, sin depender de tooltip.
+
+#### Especificacion 3
+
+- Componente: indicador de uso y dropdown de acciones.
+- Contenido: contador de uso y acciones como View Dependencies o Disable.
+- Apariencia: badge o mini barra de uso junto a trigger de acciones.
+- Comportamiento: dropdown funcional con cierre por click externo o Escape.
+
+### Agent Rentals
+
+#### Especificacion 1
+
+- Componente: tabla de contratos.
+- Contenido: cliente, agente, inicio, renovacion y estado.
+- Apariencia: tabla ordenada con columnas alineadas y badges de estado.
+- Comportamiento: responsive sin perder lectura.
+
+#### Especificacion 2
+
+- Componente: skills asociadas.
+- Contenido: chips con las skills incluidas en cada contrato.
+- Apariencia: grupo compacto de badges dentro de la fila.
+- Comportamiento: si hay muchas skills se puede resumir visualmente sin romper la tabla.
+
+#### Especificacion 3
+
+- Componente: importes y modal de desglose.
+- Contenido: monto mensual, extras y total.
+- Apariencia: importes destacados y modal centrado con bloques por concepto.
+- Comportamiento: el modal abre desde la fila y cierra por boton, backdrop o Escape.
+
+### Error Logs
+
+#### Especificacion 1
+
+- Componente: tabla de errores.
+- Contenido: timestamp, agente, modulo, mensaje corto y estado.
+- Apariencia: tabla sobria con jerarquia clara y opcion de texto tecnico.
+- Comportamiento: cada fila permite abrir detalle o usar acciones.
+
+#### Especificacion 2
+
+- Componente: badges de gravedad.
+- Contenido: Low, Medium, High y Critical.
+- Apariencia: badges codificados por color y con texto legible.
+- Comportamiento: deben mantenerse distinguibles en light y dark mode.
+
+#### Especificacion 3
+
+- Componente: dropdown de acciones y modal con stack trace.
+- Contenido: acciones como View Trace, Assign y Resolve, mas stack trace hardcodeado.
+- Apariencia: modal amplio con bloque tecnico y metadatos visibles.
+- Comportamiento: dropdown funcional y modal cerrable por boton, backdrop y Escape.
+
+## 5. Reusable Component Inventory
+
+### Sidebar
+
+Proposito: navegar entre secciones.
+Reutilizacion: mismo patron para todos los items de menu.
+
+### Topbar
+
+Proposito: dar contexto y exponer acciones globales.
+Reutilizacion: misma estructura para todas las vistas del panel.
+
+### Metric Card
+
+Proposito: resumir KPIs.
+Reutilizacion: se usa en Dashboard y en bloques de resumen secundarios.
+
+### Data Table
+
+Proposito: mostrar datos administrativos ordenados.
+Reutilizacion: usuarios, contratos y errores.
+
+### Action Dropdown
+
+Proposito: agrupar acciones secundarias.
+Reutilizacion: usuarios, agentes, skills y logs.
+
+### Modal
+
+Proposito: mostrar detalle sin salir de la pagina.
+Reutilizacion: detalle de usuario, configuracion de agente, desglose de contrato y stack trace.
+
+### Badge
+
+Proposito: comunicar estado, categoria o severidad.
+Reutilizacion: usuarios, agentes, skills, contratos y errores.
+
+### Collapsible Skill List
+
+Proposito: mostrar skills relacionadas bajo demanda.
+Reutilizacion: principalmente en Agent Management.
+
+### Dark Mode Toggle
+
+Proposito: cambiar el tema visual.
+Reutilizacion: control global persistente en la topbar.
+
+### Status Indicator
+
+Proposito: reforzar estados con color y texto.
+Reutilizacion: agentes, usuarios, contratos y logs.
+
+## 6. Design System
+
+### Colors
+
+- Primary: color principal para acciones, links y estado activo.
+- Success: color para estados activos o resueltos.
+- Warning: color para alertas y estados intermedios.
+- Danger: color para errores criticos y acciones destructivas.
+- Neutral: escala para fondos, bordes y texto secundario.
 
 ### Typography
 
-- Use a more distinctive web-safe or CDN-loaded font pairing than default sans.
-- Suggested direction: one strong display face for headings and a readable sans for UI copy.
-- Heading hierarchy must be obvious.
-- Numeric metrics should have stronger visual weight and tighter tracking.
+- Jerarquia de headings: titulo de pagina, titulo de seccion y titulo de bloque claramente diferenciados.
+- Texto de tablas: compacto, legible y con encabezados mas fuertes que el contenido.
+- Texto de badges: pequeno, semibold y facil de escanear.
 
 ### Spacing
 
-- Use a 4px or 8px spacing rhythm.
-- Dashboard cards must have generous internal padding.
-- Dense data areas such as tables may reduce vertical space while preserving readability.
-
-### Radius and Shadow
-
-- Card radius: medium to large
-- Buttons and pills: medium radius
-- Shadows: subtle, not floating excessively
-
-## 7. Information Architecture
-
-Implement the prototype as a single-page dashboard experience with internal sections, not multiple HTML pages.
-
-Main layout areas:
-
-1. Sidebar navigation
-2. Top bar
-3. Overview hero / summary section
-4. KPI metrics row
-5. Agent catalog section
-6. Skills library section
-7. Usage and billing section
-8. Activity timeline / audit feed
-
-## 8. Required Sections
-
-### 8.1 Sidebar
-
-Purpose:
-
-- Provide product navigation and brand presence.
-
-Required content:
-
-- Logo or wordmark: AgentHub
-- Workspace switcher mock element
-- Navigation items:
-  - Overview
-  - Agents
-  - Skills
-  - Usage
-  - Billing
-  - Activity
-- Bottom utility area:
-  - Admin profile summary
-  - Support link/button
-
-Interaction:
-
-- Clicking nav items scrolls or jumps to corresponding sections on the page.
-- Active section state must be visually highlighted.
-
-### 8.2 Top Bar
-
-Required content:
-
-- Current page title: Dashboard or Agent Operations
-- Short descriptive subtitle
-- Search field for agents/skills
-- Notification bell mock button
-- Primary CTA: Add Agent or New Deployment
-
-Interaction:
-
-- Search input filters the agent catalog live.
-
-### 8.3 Overview Hero
-
-Purpose:
-
-- Quickly explain the workspace state.
-
-Required content:
-
-- Workspace/company name, example: Nova Industries
-- Plan badge, example: Enterprise
-- Short summary sentence about active automation footprint
-- Summary chips:
-  - Active agents count
-  - Enabled skills count
-  - Monthly automations or executions count
-  - Estimated savings or ROI metric
-
-Required visual treatment:
-
-- A featured summary card with stronger styling than the rest of the page
-- One secondary panel showing deployment health breakdown or plan utilization
-
-### 8.4 KPI Metrics Row
-
-At least four KPI cards:
-
-- Active Agents
-- Skills in Use
-- Monthly Runs
-- Avg. Success Rate
-- Optional fifth: Seats Used or Monthly Spend
-
-Each card must include:
-
-- Label
-- Large metric value
-- Delta or comparison text
-- Small contextual note
-
-### 8.5 Agent Catalog
-
-Purpose:
-
-- Display rentable/configurable AI agents.
-
-Required controls:
-
-- Search input reuse from top bar or local search
-- Status filter tabs or pills:
-  - All
-  - Active
-  - Paused
-  - Draft
-- Sort dropdown:
-  - Most Used
-  - Highest ROI
-  - Recently Updated
-
-Required card fields per agent:
-
-- Agent name
-- Category or department
-- Short description
-- Status badge
-- Skill tags
-- Monthly runs
-- Success rate
-- Estimated monthly cost
-- Owner/team
-- Last updated
-
-Required interactions:
-
-- Clicking an agent opens a drawer or modal with more details.
-- Filter and sort controls update the visible list without reload.
-
-### 8.6 Agent Detail Drawer or Modal
-
-This is mandatory.
-
-It opens from the agent catalog and must show:
-
-- Agent name and status
-- Purpose description
-- Assigned team
-- Included skills
-- Setup checklist or configuration summary
-- Performance summary:
-  - Runs
-  - Accuracy/success rate
-  - Escalation rate
-  - Estimated savings
-- Activity snippet or recent events
-- CTA buttons such as Pause Agent, Duplicate, View Logs
-
-Interaction behavior:
-
-- Open on agent card click
-- Close via close button, background click, or Escape key
-
-### 8.7 Skills Library
-
-Purpose:
-
-- Show reusable skill building blocks.
-
-Presentation:
-
-- Grid of compact cards or pills grouped by category
-
-Required fields:
-
-- Skill name
-- Category
-- Compatibility or usage count
-- Short explanation
-- Availability state such as Included, Premium, Beta
-
-Suggested categories:
-
-- Support
-- Sales
-- Operations
-- Knowledge
-- Compliance
-
-Optional interaction:
-
-- Clicking a skill highlights related agents in the catalog.
-
-### 8.8 Usage and Billing
-
-Purpose:
-
-- Simulate operational and commercial visibility.
-
-Required sub-sections:
-
-- Usage chart panel
-- Seats or team allocation panel
-- Billing snapshot panel
-
-Because no chart library is required, build charts using HTML/CSS primitives.
-
-Accepted chart approaches:
-
-- Vertical bar chart using flex columns
-- Segmented progress bars
-- Sparkline-style faux chart built with divs
-
-Required metrics:
-
-- Monthly runs by team or by agent
-- Plan utilization percent
-- Current month spend
-- Next invoice date
-
-Billing snapshot must include:
-
-- Plan name
-- Seat count
-- Add-on skills count
-- Estimated monthly total
-
-### 8.9 Activity Timeline
-
-Purpose:
-
-- Convey admin observability.
-
-Required fields per item:
-
-- Timestamp
-- Event title
-- Event description
-- Actor or system source
-- Severity/state marker
-
-Suggested events:
-
-- Agent paused
-- New skill enabled
-- Threshold reached
-- Billing updated
-- Success rate drop detected
-
-## 9. Data Model Requirements
-
-All data must be hardcoded in JavaScript using arrays/objects.
-
-Minimum hardcoded collections:
-
-### agents
-
-Each agent object should include:
-
-- id
-- name
-- team
-- category
-- description
-- status
-- skills (array)
-- monthlyRuns
-- successRate
-- costPerMonth
-- roiLabel
-- owner
-- lastUpdated
-- savingsEstimate
-- escalationRate
-- setupItems (array)
-- recentEvents (array)
-
-Minimum quantity:
-
-- 6 agents
-
-### skills
-
-Each skill object should include:
-
-- id
-- name
-- category
-- description
-- tier
-- usageCount
-- compatibleTeams (array)
-
-Minimum quantity:
-
-- 10 skills
-
-### activity
-
-Each item should include:
-
-- id
-- timestamp
-- title
-- description
-- source
-- severity
-
-Minimum quantity:
-
-- 8 activity records
-
-### billingSummary
-
-Object fields:
-
-- planName
-- seatsUsed
-- seatsTotal
-- addOnSkills
-- projectedSpend
-- nextInvoiceDate
-- utilizationPercent
-
-## 10. Interaction Requirements
-
-Mandatory interactive behaviors:
-
-1. Live search over agent name, team, and skill names
-2. Status filtering for agents
-3. Sorting agents by one selected criterion
-4. Open/close agent details drawer or modal
-5. Navigation links scroll to sections
-6. Mobile sidebar toggle
-
-Optional but recommended behaviors:
-
-1. Highlight agents when a skill is selected
-2. Count updates in headers when filters are active
-3. Animated number entrance on initial load
-
-Interaction rules:
-
-- All interactions must be instant and client-side.
-- No broken controls are allowed.
-- If a control is present, it must visibly do something.
-
-## 11. Responsive Requirements
-
-### Desktop
-
-- Persistent left sidebar
-- Multi-column dashboard layout
-- Agent cards in 2 or 3 columns depending on width
-
-### Tablet
-
-- Narrower sidebar or collapsible nav
-- KPI cards may wrap to 2 columns
-- Drawer/modal width adjusted to viewport
-
-### Mobile
-
-- Sidebar becomes overlay panel or slide-in menu
-- Top bar stacks appropriately
-- Cards collapse to single column
-- Tables should be converted to stacked cards if any tabular content is used
-
-The prototype must remain visually coherent at approximately:
-
-- 1440px
-- 1024px
-- 768px
-- 390px
-
-## 12. Accessibility Requirements
-
-Minimum accessibility expectations:
-
-- Semantic landmarks where practical
-- Buttons must be real button elements
-- Search must have a visible or accessible label
-- Sufficient color contrast
-- Focus-visible styling on interactive controls
-- Modal/drawer close behavior accessible by keyboard
-
-## 13. Content Requirements
-
-The copy should read like an actual SaaS admin product.
-
-Use English for the UI to match common B2B dashboard conventions.
-
-Examples of acceptable naming:
-
-- Support Triage Agent
-- Revenue Recovery Agent
-- Onboarding Concierge
-- Policy Monitor
-- Knowledge Router
-- Ops Forecast Assistant
-
-Avoid lorem ipsum.
-
-All labels, empty states, helper text, and status text should be intentional.
-
-## 14. Empty and Edge States
-
-The implementation must consider at least these visual states:
-
-### No search results
-
-- Show a friendly empty state in the agent catalog
-- Include a reset filters action
-
-### Paused or draft agents
-
-- These agents must look visually distinct from active agents
-
-### Skill tier differences
-
-- Premium and Beta skills should have differentiated badges
-
-## 15. Animation Guidelines
-
-Animations should be subtle and purposeful.
-
-Allowed:
-
-- Fade/slide entrance on load
-- Hover lift on cards
-- Drawer slide-in
-- Small transitions on filters and pills
-
-Avoid:
-
-- Long looping animations
-- Decorative motion unrelated to information hierarchy
-
-## 16. Technical Implementation Notes
-
-### HTML
-
-- Keep the document structure clean and sectioned.
-- Use IDs on major sections for navigation.
-- Prefer reusable card patterns.
-
-### TailwindCSS
-
-- Use Tailwind via CDN.
-- Extend styling with custom CSS variables and small handcrafted utility classes in styles.css.
-- Do not rely exclusively on raw utility clutter when a reusable class improves clarity.
-
-### JavaScript
-
-- Centralize hardcoded data in app.js.
-- Render repeated UI regions from data arrays where useful, especially agent cards, skill cards, and activity items.
-- Keep state simple, for example:
-  - searchTerm
-  - selectedStatus
-  - selectedSort
-  - selectedSkill
-  - activeAgentId
-
-Recommended JS responsibilities:
-
-- Render UI from data
-- Bind event listeners
-- Re-render filtered/sorted views
-- Control drawer/modal state
-- Control mobile navigation state
-
-## 17. Suggested Page Structure
-
-High-level DOM order:
-
-1. App shell wrapper
-2. Sidebar
-3. Main content area
-4. Top bar
-5. Overview section
-6. KPI section
-7. Agent catalog section
-8. Skills section
-9. Usage/Billing section
-10. Activity section
-11. Agent detail drawer/modal
-
-## 18. Definition of Done
-
-The implementation is complete when:
-
-- The page loads locally with no backend
-- The dashboard looks like a credible SaaS admin panel
-- All required sections are present
-- The dataset is hardcoded and internally consistent
-- Search, filter, sort, and modal/drawer interactions work
-- Mobile layout is usable
-- The result can be shown to backend developers as a UI reference
-
-## 19. Non-Goals
-
-Explicitly out of scope:
-
-- Real authentication
-- Real billing logic
-- Real analytics
-- Data persistence
-- API integration
-- Login flow
-- Multi-page routing
-
-## 20. Implementation Sequence
-
-The implementation phase should follow this order:
-
-1. Build the shell layout and navigation
-2. Define the hardcoded dataset in JavaScript
-3. Render overview and KPI cards
-4. Render agent catalog with filters and sorting
-5. Implement agent details drawer/modal
-6. Render skills library
-7. Render usage and billing visuals
-8. Render activity timeline
-9. Add responsive behavior and final polish
-
-## 21. QA Checklist
-
-Before considering the implementation finished, verify:
-
-- Search returns expected agents
-- Status filters work correctly
-- Sort order changes card order
-- Agent modal/drawer always opens with matching content
-- Empty search state appears correctly
-- Mobile nav opens and closes correctly
-- No console errors in normal use
-- Layout remains stable across desktop and mobile widths
-
-## 22. Final Guidance for the Implementing Developer
-
-When implementing this prototype, optimize for clarity of product thinking over engineering abstraction. The goal is not to build a scalable component framework. The goal is to create a convincing, static, interactive visual spec that backend and product teams can inspect and discuss.
+- Separacion entre secciones: consistente y amplia para no saturar la pantalla.
+- Padding de cards: suficiente para que el contenido respire.
+- Gaps de grids: uniformes en metricas, catalogos y paneles.
+
+## 7. Interactions
+
+### Dropdowns
+
+- Se abren al hacer click en el trigger.
+- Solo un dropdown puede estar abierto al mismo tiempo.
+- Se cierran por click externo, Escape o seleccion de accion.
+
+### Modales
+
+- Se abren desde botones o acciones de fila.
+- Deben mostrar backdrop.
+- Se cierran con boton, click sobre backdrop o Escape.
+
+### Skills colapsables
+
+- Se expanden desde un trigger visible.
+- La animacion debe ser simple y rapida.
+- El contenido expandido no debe romper el layout.
+
+### Cambio Dark/Light Mode
+
+- Debe alternar clases o atributos globales.
+- Debe afectar sidebar, topbar, tarjetas, tablas, modales y badges.
+- Puede persistir opcionalmente en localStorage.
+
+### Hover states
+
+- Botones, filas, tarjetas y links muestran feedback visual.
+- El hover debe ser sutil y consistente.
+
+### Focus states
+
+- Todo control interactivo debe tener focus visible.
+- El focus debe ser claro en ambos temas.
+
+## 8. Acceptance Criteria
+
+1. La navegacion lateral es visible en desktop.
+2. Las 6 secciones principales existen.
+3. El estado activo del sidebar se resalta visualmente.
+4. La topbar muestra el titulo de la seccion actual.
+5. El Dark mode funciona sin recargar la pagina.
+6. El Light mode funciona al volver desde Dark mode.
+7. El Dashboard incluye un grid responsive 2x2 de metricas.
+8. Cada tarjeta de metrica muestra icono, etiqueta y valor.
+9. Existe un placeholder visible para grafico semanal.
+10. User Management incluye tabla de usuarios.
+11. Cada fila de usuarios tiene dropdown funcional.
+12. User Management incluye modal de detalle funcional.
+13. Agent Management incluye lista de agentes.
+14. Los agentes muestran skills colapsables funcionales.
+15. Agent Management incluye dropdown de acciones funcional.
+16. Agent Management incluye modal de configuracion funcional.
+17. Skills incluye catalogo, explicacion contextual e indicador de uso.
+18. Agent Rentals muestra tabla de contratos con skills e importes.
+19. Agent Rentals incluye modal de desglose funcional.
+20. Error Logs muestra tabla de errores con badges de gravedad.
+21. Error Logs incluye dropdown de acciones funcional.
+22. Error Logs incluye modal con stack trace funcional.
+23. Todos los modales tienen backdrop funcional.
+24. Todos los dropdowns se cierran al hacer click fuera.
+25. Todos los datos mostrados estan hardcodeados.
+26. El layout es responsive en desktop, tablet y mobile.
+27. La implementacion usa exclusivamente TailwindCSS via CDN y Vanilla JavaScript.
+28. No hay llamadas a APIs ni dependencias de backend.
