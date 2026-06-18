@@ -527,21 +527,102 @@
 
             <section id="agent-rentals" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 05</p>
-              <h3 class="mt-2 text-2xl font-bold">Agent Rentals</h3>
-              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Commercial contracts with included skills and monthly charges.</p>
+              <h3 class="mt-2 text-2xl font-bold">Contrataciones de Agente</h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Contratos activos con detalle de fechas, skills incluidas e importe pagado.</p>
               <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 dark:border-slate-700">
                 <table class="min-w-full divide-y divide-stone-200 text-sm dark:divide-slate-700">
                   <thead class="bg-stone-50 dark:bg-slate-800">
                     <tr>
-                      <th class="px-4 py-3 text-left font-semibold">Client</th>
-                      <th class="px-4 py-3 text-left font-semibold">Agent</th>
-                      <th class="px-4 py-3 text-left font-semibold">Renewal</th>
-                      <th class="px-4 py-3 text-left font-semibold">Amount</th>
+                      <th class="px-4 py-3 text-left font-semibold">Cliente</th>
+                      <th class="px-4 py-3 text-left font-semibold">Agente</th>
+                      <th class="px-4 py-3 text-left font-semibold">Skills contratadas</th>
+                      <th class="px-4 py-3 text-left font-semibold">Inicio</th>
+                      <th class="px-4 py-3 text-left font-semibold">Fin</th>
+                      <th class="px-4 py-3 text-left font-semibold">Importe pagado</th>
+                      <th class="px-4 py-3 text-right font-semibold">Acciones</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-stone-200 dark:divide-slate-700">
-                    <tr><td class="px-4 py-3">Nova Industries</td><td class="px-4 py-3">Support Triage</td><td class="px-4 py-3">2026-07-15</td><td class="px-4 py-3">$7,100</td></tr>
-                    <tr><td class="px-4 py-3">Northwind Retail</td><td class="px-4 py-3">Pipeline Qualifier</td><td class="px-4 py-3">2026-08-03</td><td class="px-4 py-3">$5,900</td></tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium">Nova Industries</td>
+                      <td class="px-4 py-3">Support Triage</td>
+                      <td class="px-4 py-3">Intent Routing, Reply Drafting</td>
+                      <td class="px-4 py-3">2026-01-10</td>
+                      <td class="px-4 py-3">2026-12-31</td>
+                      <td class="px-4 py-3">$14,200</td>
+                      <td class="px-4 py-3 text-right">
+                        <div class="relative inline-block text-left">
+                          <button type="button" data-contract-menu-toggle="c1" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del contrato">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                            </svg>
+                          </button>
+                          <div data-contract-menu="c1" class="contract-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                            <button type="button" data-contract-detail="c1" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium">Northwind Retail</td>
+                      <td class="px-4 py-3">Pipeline Qualifier</td>
+                      <td class="px-4 py-3">Lead Scoring, CRM Enrichment, Email Drafting</td>
+                      <td class="px-4 py-3">2026-02-01</td>
+                      <td class="px-4 py-3">2026-11-30</td>
+                      <td class="px-4 py-3">$11,750</td>
+                      <td class="px-4 py-3 text-right">
+                        <div class="relative inline-block text-left">
+                          <button type="button" data-contract-menu-toggle="c2" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del contrato">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                            </svg>
+                          </button>
+                          <div data-contract-menu="c2" class="contract-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                            <button type="button" data-contract-detail="c2" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium">Helios Logistics</td>
+                      <td class="px-4 py-3">Policy Monitor</td>
+                      <td class="px-4 py-3">Document Diff, Risk Tagging, Review Queue</td>
+                      <td class="px-4 py-3">2026-03-15</td>
+                      <td class="px-4 py-3">2027-03-14</td>
+                      <td class="px-4 py-3">$18,900</td>
+                      <td class="px-4 py-3 text-right">
+                        <div class="relative inline-block text-left">
+                          <button type="button" data-contract-menu-toggle="c3" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del contrato">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                            </svg>
+                          </button>
+                          <div data-contract-menu="c3" class="contract-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                            <button type="button" data-contract-detail="c3" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium">Atlas Commerce</td>
+                      <td class="px-4 py-3">Renewal Copilot</td>
+                      <td class="px-4 py-3">Risk Signals, Playbook Drafting, Account Priority</td>
+                      <td class="px-4 py-3">2026-04-20</td>
+                      <td class="px-4 py-3">2027-04-19</td>
+                      <td class="px-4 py-3">$16,480</td>
+                      <td class="px-4 py-3 text-right">
+                        <div class="relative inline-block text-left">
+                          <button type="button" data-contract-menu-toggle="c4" class="rounded-xl border border-stone-200 p-2 text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300" aria-label="Abrir acciones del contrato">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01" />
+                            </svg>
+                          </button>
+                          <div data-contract-menu="c4" class="contract-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+                            <button type="button" data-contract-detail="c4" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -615,6 +696,51 @@
       </div>
     </div>
 
+    <div id="contract-detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 px-4 py-6">
+      <div class="w-full max-w-3xl rounded-3xl border border-stone-200 bg-white p-6 shadow-panel dark:border-slate-700 dark:bg-slate-900">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-600">Detalle del contrato</p>
+            <h4 id="modal-contract-client" class="mt-2 text-2xl font-bold">Cliente</h4>
+          </div>
+          <button id="close-contract-modal" type="button" class="rounded-xl border border-stone-200 px-3 py-2 text-sm font-semibold text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300">Cerrar</button>
+        </div>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Agente</p>
+            <p id="modal-contract-agent" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Inicio</p>
+            <p id="modal-contract-start" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Fin</p>
+            <p id="modal-contract-end" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Estado</p>
+            <p id="modal-contract-status" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Importe pagado</p>
+            <p id="modal-contract-total" class="mt-2 font-semibold">-</p>
+          </div>
+        </div>
+        <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 dark:border-slate-700">
+          <table class="min-w-full divide-y divide-stone-200 text-sm dark:divide-slate-700">
+            <thead class="bg-stone-50 dark:bg-slate-800">
+              <tr>
+                <th class="px-4 py-3 text-left font-semibold">Skill</th>
+                <th class="px-4 py-3 text-left font-semibold">Precio individual</th>
+              </tr>
+            </thead>
+            <tbody id="modal-contract-skills" class="divide-y divide-stone-200 dark:divide-slate-700"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <script>
       const state = {
         sidebarOpen: false,
@@ -636,14 +762,26 @@
         agentMenus: Array.from(document.querySelectorAll("[data-agent-menu]")),
         skillMenuToggles: Array.from(document.querySelectorAll("[data-skill-menu-toggle]")),
         skillMenus: Array.from(document.querySelectorAll("[data-skill-menu]")),
+        contractMenuToggles: Array.from(document.querySelectorAll("[data-contract-menu-toggle]")),
+        contractMenus: Array.from(document.querySelectorAll("[data-contract-menu]")),
+        contractDetailButtons: Array.from(document.querySelectorAll("[data-contract-detail]")),
         agentConfigButtons: Array.from(document.querySelectorAll("[data-agent-config]")),
         userDetailButtons: Array.from(document.querySelectorAll("[data-user-detail]")),
         userDetailModal: document.getElementById("user-detail-modal"),
         closeUserModalButton: document.getElementById("close-user-modal"),
         agentConfigModal: document.getElementById("agent-config-modal"),
         closeAgentModalButton: document.getElementById("close-agent-modal"),
+        contractDetailModal: document.getElementById("contract-detail-modal"),
+        closeContractModalButton: document.getElementById("close-contract-modal"),
         modalAgentName: document.getElementById("modal-agent-name"),
         modalAgentPrompt: document.getElementById("modal-agent-prompt"),
+        modalContractClient: document.getElementById("modal-contract-client"),
+        modalContractAgent: document.getElementById("modal-contract-agent"),
+        modalContractStart: document.getElementById("modal-contract-start"),
+        modalContractEnd: document.getElementById("modal-contract-end"),
+        modalContractStatus: document.getElementById("modal-contract-status"),
+        modalContractTotal: document.getElementById("modal-contract-total"),
+        modalContractSkills: document.getElementById("modal-contract-skills"),
         modalUserName: document.getElementById("modal-user-name"),
         modalUserEmail: document.getElementById("modal-user-email"),
         modalUserPlan: document.getElementById("modal-user-plan"),
@@ -683,6 +821,60 @@
         }
       };
 
+      const contractRecords = {
+        c1: {
+          client: "Nova Industries",
+          agent: "Support Triage",
+          start: "2026-01-10",
+          end: "2026-12-31",
+          status: "Activo",
+          totalPaid: "$14,200",
+          skills: [
+            { name: "Intent Routing", price: "$5,600" },
+            { name: "Reply Drafting", price: "$8,600" }
+          ]
+        },
+        c2: {
+          client: "Northwind Retail",
+          agent: "Pipeline Qualifier",
+          start: "2026-02-01",
+          end: "2026-11-30",
+          status: "Activo",
+          totalPaid: "$11,750",
+          skills: [
+            { name: "Lead Scoring", price: "$4,100" },
+            { name: "CRM Enrichment", price: "$3,700" },
+            { name: "Email Drafting", price: "$3,950" }
+          ]
+        },
+        c3: {
+          client: "Helios Logistics",
+          agent: "Policy Monitor",
+          start: "2026-03-15",
+          end: "2027-03-14",
+          status: "Activo",
+          totalPaid: "$18,900",
+          skills: [
+            { name: "Document Diff", price: "$6,100" },
+            { name: "Risk Tagging", price: "$7,900" },
+            { name: "Review Queue", price: "$4,900" }
+          ]
+        },
+        c4: {
+          client: "Atlas Commerce",
+          agent: "Renewal Copilot",
+          start: "2026-04-20",
+          end: "2027-04-19",
+          status: "Activo",
+          totalPaid: "$16,480",
+          skills: [
+            { name: "Risk Signals", price: "$5,200" },
+            { name: "Playbook Drafting", price: "$5,640" },
+            { name: "Account Priority", price: "$5,640" }
+          ]
+        }
+      };
+
       function closeUserMenus() {
         elements.userMenus.forEach((menu) => menu.classList.add("hidden"));
       }
@@ -693,6 +885,10 @@
 
       function closeSkillMenus() {
         elements.skillMenus.forEach((menu) => menu.classList.add("hidden"));
+      }
+
+      function closeContractMenus() {
+        elements.contractMenus.forEach((menu) => menu.classList.add("hidden"));
       }
 
       function toggleUserMenu(menuId) {
@@ -731,6 +927,18 @@
         }
       }
 
+      function toggleContractMenu(menuId) {
+        const menu = elements.contractMenus.find((item) => item.dataset.contractMenu === menuId);
+        if (!menu) {
+          return;
+        }
+        const shouldOpen = menu.classList.contains("hidden");
+        closeContractMenus();
+        if (shouldOpen) {
+          menu.classList.remove("hidden");
+        }
+      }
+
       function toggleAgentSkills(agentId) {
         const panel = elements.agentSkillPanels.find((item) => item.dataset.agentSkills === agentId);
         if (!panel) {
@@ -754,6 +962,11 @@
       function closeAgentConfigModal() {
         elements.agentConfigModal.classList.add("hidden");
         elements.agentConfigModal.classList.remove("flex");
+      }
+
+      function closeContractDetailModal() {
+        elements.contractDetailModal.classList.add("hidden");
+        elements.contractDetailModal.classList.remove("flex");
       }
 
       function openUserModal(userId) {
@@ -781,6 +994,29 @@
         elements.modalAgentPrompt.value = agent.prompt;
         elements.agentConfigModal.classList.remove("hidden");
         elements.agentConfigModal.classList.add("flex");
+      }
+
+      function openContractDetailModal(contractId) {
+        const contract = contractRecords[contractId];
+        if (!contract) {
+          return;
+        }
+
+        elements.modalContractClient.textContent = contract.client;
+        elements.modalContractAgent.textContent = contract.agent;
+        elements.modalContractStart.textContent = contract.start;
+        elements.modalContractEnd.textContent = contract.end;
+        elements.modalContractStatus.textContent = contract.status;
+        elements.modalContractTotal.textContent = contract.totalPaid;
+        elements.modalContractSkills.innerHTML = contract.skills
+          .map(
+            (skill) =>
+              `<tr><td class="px-4 py-3 font-medium">${skill.name}</td><td class="px-4 py-3">${skill.price}</td></tr>`
+          )
+          .join("");
+
+        elements.contractDetailModal.classList.remove("hidden");
+        elements.contractDetailModal.classList.add("flex");
       }
 
       function applyTheme() {
@@ -847,6 +1083,13 @@
         });
       });
 
+      elements.contractMenuToggles.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          toggleContractMenu(button.dataset.contractMenuToggle);
+        });
+      });
+
       elements.agentSkillToggles.forEach((button) => {
         button.addEventListener("click", () => {
           toggleAgentSkills(button.dataset.agentSkillsToggle);
@@ -867,12 +1110,23 @@
         });
       });
 
+      elements.contractDetailButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          closeContractMenus();
+          openContractDetailModal(button.dataset.contractDetail);
+        });
+      });
+
       elements.closeUserModalButton.addEventListener("click", () => {
         closeUserModal();
       });
 
       elements.closeAgentModalButton.addEventListener("click", () => {
         closeAgentConfigModal();
+      });
+
+      elements.closeContractModalButton.addEventListener("click", () => {
+        closeContractDetailModal();
       });
 
       elements.userDetailModal.addEventListener("click", (event) => {
@@ -887,6 +1141,12 @@
         }
       });
 
+      elements.contractDetailModal.addEventListener("click", (event) => {
+        if (event.target === elements.contractDetailModal) {
+          closeContractDetailModal();
+        }
+      });
+
       document.addEventListener("click", (event) => {
         if (!event.target.closest("[data-user-menu-toggle]") && !event.target.closest("[data-user-menu]")) {
           closeUserMenus();
@@ -897,6 +1157,9 @@
         if (!event.target.closest("[data-skill-menu-toggle]") && !event.target.closest("[data-skill-menu]")) {
           closeSkillMenus();
         }
+        if (!event.target.closest("[data-contract-menu-toggle]") && !event.target.closest("[data-contract-menu]")) {
+          closeContractMenus();
+        }
       });
 
       document.addEventListener("keydown", (event) => {
@@ -904,8 +1167,10 @@
           closeUserMenus();
           closeAgentMenus();
           closeSkillMenus();
+          closeContractMenus();
           closeUserModal();
           closeAgentConfigModal();
+          closeContractDetailModal();
         }
       });
 
