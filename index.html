@@ -8,8 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script>
-      tailwind = {
-        config: {
+      tailwind.config = {
           darkMode: "class",
           theme: {
             extend: {
@@ -31,13 +30,12 @@
               }
             }
           }
-        }
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="h-full bg-stone-100 font-sans text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-    <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.08),_transparent_35%)] dark:bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.18),_transparent_35%)]">
+  <body class="h-full bg-stone-100 font-sans text-slate-900 transition-colors duration-[500ms] dark:bg-slate-950 dark:text-slate-100">
+    <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.08),_transparent_35%)] transition-colors duration-[500ms] dark:bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.18),_transparent_35%)]">
       <div id="mobile-backdrop" class="fixed inset-0 z-30 hidden bg-slate-950/60 lg:hidden"></div>
 
       <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col border-r border-stone-200 bg-white/95 px-4 py-5 shadow-panel transition-transform duration-300 dark:border-slate-800 dark:bg-slate-900/95 lg:translate-x-0">
@@ -89,7 +87,7 @@
       </aside>
 
       <div class="flex min-w-0 flex-1 flex-col lg:pl-72">
-        <header class="sticky top-0 z-20 border-b border-stone-200 bg-stone-100/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
+        <header class="sticky top-0 z-20 border-b border-stone-200 bg-stone-100/90 backdrop-blur transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-950/90">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-4 lg:px-8">
             <div class="flex items-center gap-3">
               <button id="open-sidebar" type="button" class="rounded-2xl border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:hidden">Menu</button>
@@ -98,18 +96,33 @@
                 <h2 id="current-section-title" class="mt-1 text-2xl font-bold">Dashboard</h2>
               </div>
             </div>
-            <button id="theme-toggle" type="button" class="rounded-2xl border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">Dark mode</button>
+            <button id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Cambiar tema" class="group inline-flex items-center rounded-2xl border border-stone-200 bg-white p-2 transition-colors duration-[500ms] dark:border-slate-700 dark:bg-slate-900">
+              <span class="sr-only">Cambiar entre modo claro y oscuro</span>
+              <span class="relative h-8 w-14 rounded-full bg-stone-200 transition-colors duration-[500ms] dark:bg-slate-700">
+                <span id="theme-moon-icon" class="pointer-events-none absolute left-1 top-1/2 -translate-y-1/2 text-slate-600 transition-colors duration-[500ms] dark:text-brand-200">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" />
+                  </svg>
+                </span>
+                <span id="theme-sun-icon" class="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-amber-500 transition-colors duration-[500ms] dark:text-slate-500">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2.25M12 18.75V21M4.97 4.97l1.59 1.59M17.44 17.44l1.59 1.59M3 12h2.25M18.75 12H21M4.97 19.03l1.59-1.59M17.44 6.56l1.59-1.59M15.75 12A3.75 3.75 0 1 1 8.25 12a3.75 3.75 0 0 1 7.5 0Z" />
+                  </svg>
+                </span>
+                <span id="theme-toggle-knob" class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white shadow transition-transform duration-[500ms] ease-in-out"></span>
+              </span>
+            </button>
           </div>
         </header>
 
-        <main id="main-content" class="h-[calc(100vh-89px)] overflow-y-auto px-4 py-6 lg:px-8 lg:py-8">
+        <main id="main-content" class="min-h-[calc(100vh-89px)] overflow-y-auto px-4 py-6 lg:h-[calc(100vh-89px)] lg:px-8 lg:py-8">
           <div class="mx-auto max-w-7xl space-y-8">
-            <section id="dashboard" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+            <section id="dashboard" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 01</p>
               <h3 class="mt-2 text-2xl font-bold">Dashboard</h3>
               <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Resumen financiero y operativo con actividad semanal hardcodeada.</p>
-              <div class="mt-6 grid gap-4 md:grid-cols-2">
-                <article class="rounded-2xl bg-brand-50 p-5 dark:bg-brand-900/30">
+              <div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <article class="rounded-2xl bg-brand-50 p-5 transition-colors duration-[500ms] dark:bg-brand-900/30">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-sm font-semibold text-brand-700 dark:text-brand-200">Ingresos totales</p>
@@ -122,7 +135,7 @@
                     </span>
                   </div>
                 </article>
-                <article class="rounded-2xl bg-amber-50 p-5 dark:bg-amber-900/30">
+                <article class="rounded-2xl bg-amber-50 p-5 transition-colors duration-[500ms] dark:bg-amber-900/30">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-sm font-semibold text-amber-700 dark:text-amber-200">Perdidas por descuento</p>
@@ -135,7 +148,7 @@
                     </span>
                   </div>
                 </article>
-                <article class="rounded-2xl bg-emerald-50 p-5 dark:bg-emerald-900/30">
+                <article class="rounded-2xl bg-emerald-50 p-5 transition-colors duration-[500ms] dark:bg-emerald-900/30">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-sm font-semibold text-emerald-700 dark:text-emerald-200">Agentes activos</p>
@@ -148,7 +161,7 @@
                     </span>
                   </div>
                 </article>
-                <article class="rounded-2xl bg-rose-50 p-5 dark:bg-rose-900/30">
+                <article class="rounded-2xl bg-rose-50 p-5 transition-colors duration-[500ms] dark:bg-rose-900/30">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-sm font-semibold text-rose-700 dark:text-rose-200">Agentes fallando</p>
@@ -162,7 +175,7 @@
                   </div>
                 </article>
               </div>
-              <div class="mt-6 w-full rounded-2xl border border-dashed border-stone-300 bg-stone-50 p-6 dark:border-slate-700 dark:bg-slate-950/60">
+              <div class="mt-6 w-full rounded-2xl border border-dashed border-stone-300 bg-stone-50 p-6 transition-colors duration-[500ms] dark:border-slate-700 dark:bg-slate-950/60">
                 <p class="text-sm font-semibold">Grafico de actividad semanal</p>
                 <div class="mt-4 grid grid-cols-7 items-end gap-3">
                   <div class="h-24 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
@@ -176,13 +189,13 @@
               </div>
             </section>
 
-            <section id="user-management" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+            <section id="user-management" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 02</p>
               <h3 class="mt-2 text-2xl font-bold">User Management</h3>
               <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Gestion de usuarios con datos hardcodeados, plan y estado actual.</p>
-              <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 dark:border-slate-700">
-                <table class="min-w-full divide-y divide-stone-200 text-sm dark:divide-slate-700">
-                  <thead class="bg-stone-50 dark:bg-slate-800">
+              <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 transition-colors duration-[500ms] dark:border-slate-700">
+                <table class="min-w-[760px] divide-y divide-stone-200 text-sm dark:divide-slate-700">
+                  <thead class="bg-stone-50 transition-colors duration-[500ms] dark:bg-slate-800">
                     <tr>
                       <th class="px-4 py-3 text-left font-semibold">Nombre</th>
                       <th class="px-4 py-3 text-left font-semibold">Email</th>
@@ -292,12 +305,12 @@
               </div>
             </section>
 
-            <section id="agent-management" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+            <section id="agent-management" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 03</p>
               <h3 class="mt-2 text-2xl font-bold">Agent Management</h3>
               <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Gestion de agentes con estado, skills colapsables y configuracion por prompt.</p>
               <div class="mt-6 space-y-3">
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <p class="font-semibold">Support Triage</p>
@@ -330,7 +343,7 @@
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <p class="font-semibold">Pipeline Qualifier</p>
@@ -363,7 +376,7 @@
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <p class="font-semibold">Policy Monitor</p>
@@ -396,7 +409,7 @@
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <p class="font-semibold">Renewal Copilot</p>
@@ -431,15 +444,15 @@
               </div>
             </section>
 
-            <section id="skills" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+            <section id="skills" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 04</p>
               <h3 class="mt-2 text-2xl font-bold">Skills</h3>
               <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Catalogo de habilidades reutilizables habilitadas en los agentes activos.</p>
-              <div class="mt-4 rounded-2xl border border-brand-200 bg-brand-50/70 p-4 dark:border-brand-700 dark:bg-brand-900/20">
+              <div class="mt-4 rounded-2xl border border-brand-200 bg-brand-50/70 p-4 transition-colors duration-[500ms] dark:border-brand-700 dark:bg-brand-900/20">
                 <p class="text-sm text-slate-700 dark:text-slate-200">En AgentHub, una skill es una capacidad puntual que un agente puede usar para resolver tareas especificas, como clasificar tickets, enriquecer datos o detectar riesgos. Un mismo agente puede tener varias skills habilitadas segun su rol.</p>
               </div>
               <div class="mt-6 grid gap-4 md:grid-cols-2">
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="font-semibold">Intent Routing</p>
@@ -460,7 +473,7 @@
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="font-semibold">CRM Enrichment</p>
@@ -481,7 +494,7 @@
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="font-semibold">Risk Tagging</p>
@@ -502,7 +515,7 @@
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="font-semibold">Reply Drafting</p>
@@ -525,13 +538,13 @@
               </div>
             </section>
 
-            <section id="agent-rentals" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+            <section id="agent-rentals" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 05</p>
               <h3 class="mt-2 text-2xl font-bold">Contrataciones de Agente</h3>
               <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Contratos activos con detalle de fechas, skills incluidas e importe pagado.</p>
-              <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 dark:border-slate-700">
-                <table class="min-w-full divide-y divide-stone-200 text-sm dark:divide-slate-700">
-                  <thead class="bg-stone-50 dark:bg-slate-800">
+              <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 transition-colors duration-[500ms] dark:border-slate-700">
+                <table class="min-w-[1080px] divide-y divide-stone-200 text-sm dark:divide-slate-700">
+                  <thead class="bg-stone-50 transition-colors duration-[500ms] dark:bg-slate-800">
                     <tr>
                       <th class="px-4 py-3 text-left font-semibold">Cliente</th>
                       <th class="px-4 py-3 text-left font-semibold">Agente</th>
@@ -628,12 +641,12 @@
               </div>
             </section>
 
-            <section id="error-logs" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel dark:border-slate-800 dark:bg-slate-900/80">
+            <section id="error-logs" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 06</p>
               <h3 class="mt-2 text-2xl font-bold">Log de errores</h3>
               <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Registro hardcodeado de incidentes recientes por agente y tipo de error.</p>
               <div class="mt-6 space-y-3">
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 08:12:04</p>
@@ -648,14 +661,14 @@
                         </svg>
                       </button>
                       <div data-error-menu="e1" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" data-error-detail="e1" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                         <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
                       </div>
                     </div>
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 08:27:31</p>
@@ -670,14 +683,14 @@
                         </svg>
                       </button>
                       <div data-error-menu="e2" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" data-error-detail="e2" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                         <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
                       </div>
                     </div>
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 09:03:10</p>
@@ -692,14 +705,14 @@
                         </svg>
                       </button>
                       <div data-error-menu="e3" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" data-error-detail="e3" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                         <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
                       </div>
                     </div>
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 09:28:52</p>
@@ -714,14 +727,14 @@
                         </svg>
                       </button>
                       <div data-error-menu="e4" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" data-error-detail="e4" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                         <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
                       </div>
                     </div>
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 10:06:19</p>
@@ -736,14 +749,14 @@
                         </svg>
                       </button>
                       <div data-error-menu="e5" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" data-error-detail="e5" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                         <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
                       </div>
                     </div>
                   </div>
                 </article>
 
-                <article class="rounded-2xl border border-stone-200 p-4 dark:border-slate-700">
+                <article class="rounded-2xl border border-stone-200 p-4 transition-colors duration-[500ms] dark:border-slate-700">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">2026-06-18 10:31:47</p>
@@ -758,7 +771,7 @@
                         </svg>
                       </button>
                       <div data-error-menu="e6" class="error-menu absolute right-0 z-10 mt-2 hidden w-40 rounded-xl border border-stone-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
-                        <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
+                        <button type="button" data-error-detail="e6" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Ver detalle</button>
                         <button type="button" class="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-slate-800">Marcar como leido</button>
                       </div>
                     </div>
@@ -870,6 +883,44 @@
       </div>
     </div>
 
+    <div id="error-detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 px-4 py-6">
+      <div class="w-full max-w-3xl rounded-3xl border border-stone-200 bg-white p-6 shadow-panel dark:border-slate-700 dark:bg-slate-900">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-600">Detalle del error</p>
+            <h4 id="modal-error-title" class="mt-2 text-2xl font-bold">Incidente</h4>
+          </div>
+          <button id="close-error-modal" type="button" class="rounded-xl border border-stone-200 px-3 py-2 text-sm font-semibold text-slate-600 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300">Cerrar</button>
+        </div>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Timestamp</p>
+            <p id="modal-error-timestamp" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Agente</p>
+            <p id="modal-error-agent" class="mt-2 font-semibold">-</p>
+          </div>
+          <div class="rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Tipo</p>
+            <p id="modal-error-type" class="mt-2 font-semibold">-</p>
+          </div>
+        </div>
+        <div class="mt-4 rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Descripcion</p>
+          <p id="modal-error-description" class="mt-2 text-sm text-slate-700 dark:text-slate-200">-</p>
+        </div>
+        <div class="mt-4 rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Contexto tecnico (dummy)</p>
+          <p id="modal-error-context" class="mt-2 text-sm text-slate-700 dark:text-slate-200">-</p>
+        </div>
+        <div class="mt-4 rounded-2xl bg-stone-100 p-4 dark:bg-slate-800">
+          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Accion sugerida (dummy)</p>
+          <p id="modal-error-action" class="mt-2 text-sm text-slate-700 dark:text-slate-200">-</p>
+        </div>
+      </div>
+    </div>
+
     <script>
       const state = {
         sidebarOpen: false,
@@ -893,6 +944,7 @@
         skillMenus: Array.from(document.querySelectorAll("[data-skill-menu]")),
         errorMenuToggles: Array.from(document.querySelectorAll("[data-error-menu-toggle]")),
         errorMenus: Array.from(document.querySelectorAll("[data-error-menu]")),
+        errorDetailButtons: Array.from(document.querySelectorAll("[data-error-detail]")),
         contractMenuToggles: Array.from(document.querySelectorAll("[data-contract-menu-toggle]")),
         contractMenus: Array.from(document.querySelectorAll("[data-contract-menu]")),
         contractDetailButtons: Array.from(document.querySelectorAll("[data-contract-detail]")),
@@ -904,8 +956,17 @@
         closeAgentModalButton: document.getElementById("close-agent-modal"),
         contractDetailModal: document.getElementById("contract-detail-modal"),
         closeContractModalButton: document.getElementById("close-contract-modal"),
+        errorDetailModal: document.getElementById("error-detail-modal"),
+        closeErrorModalButton: document.getElementById("close-error-modal"),
         modalAgentName: document.getElementById("modal-agent-name"),
         modalAgentPrompt: document.getElementById("modal-agent-prompt"),
+        modalErrorTitle: document.getElementById("modal-error-title"),
+        modalErrorTimestamp: document.getElementById("modal-error-timestamp"),
+        modalErrorAgent: document.getElementById("modal-error-agent"),
+        modalErrorType: document.getElementById("modal-error-type"),
+        modalErrorDescription: document.getElementById("modal-error-description"),
+        modalErrorContext: document.getElementById("modal-error-context"),
+        modalErrorAction: document.getElementById("modal-error-action"),
         modalContractClient: document.getElementById("modal-contract-client"),
         modalContractAgent: document.getElementById("modal-contract-agent"),
         modalContractStart: document.getElementById("modal-contract-start"),
@@ -922,6 +983,9 @@
         modalUserLastAccess: document.getElementById("modal-user-last-access"),
         sectionTitle: document.getElementById("current-section-title"),
         themeToggle: document.getElementById("theme-toggle"),
+        themeToggleKnob: document.getElementById("theme-toggle-knob"),
+        themeMoonIcon: document.getElementById("theme-moon-icon"),
+        themeSunIcon: document.getElementById("theme-sun-icon"),
         mainContent: document.getElementById("main-content")
       };
 
@@ -1003,6 +1067,63 @@
             { name: "Playbook Drafting", price: "$5,640" },
             { name: "Account Priority", price: "$5,640" }
           ]
+        }
+      };
+
+      const errorRecords = {
+        e1: {
+          title: "Timeout en reply drafting",
+          timestamp: "2026-06-18 08:12:04",
+          agent: "Support Triage",
+          type: "Critico",
+          description: "El generador de respuestas excedio 30s en solicitudes prioritarias.",
+          context: "job_id: triage-2241, trace: 4fd1b, provider: llm-main, latency_p95: 31.8s",
+          action: "Reducir longitud de contexto y activar fallback de plantilla rapida para prioridad alta."
+        },
+        e2: {
+          title: "Schema invalido en enrichment",
+          timestamp: "2026-06-18 08:27:31",
+          agent: "Pipeline Qualifier",
+          type: "Advertencia",
+          description: "El payload de enrichment no incluyo el campo obligatorio company_size.",
+          context: "lead_id: nw-9021, source: webhook-crm, schema_version: v3.2",
+          action: "Aplicar normalizacion previa y forzar valor por defecto cuando el dato venga vacio."
+        },
+        e3: {
+          title: "Diff sin baseline",
+          timestamp: "2026-06-18 09:03:10",
+          agent: "Policy Monitor",
+          type: "Critico",
+          description: "No existe documento base para comparar la revision entrante.",
+          context: "doc_id: pl-771, revision: r14, baseline: null",
+          action: "Rehidratar baseline desde snapshot nocturno y reintentar comparacion."
+        },
+        e4: {
+          title: "Rate limit en senales de churn",
+          timestamp: "2026-06-18 09:28:52",
+          agent: "Renewal Copilot",
+          type: "Advertencia",
+          description: "El proveedor de analitica rechazo peticiones por limite de cuota.",
+          context: "account_batch: rn-550, provider: risk-api, status: 429",
+          action: "Agregar backoff exponencial y ventana de reintento de 60 segundos."
+        },
+        e5: {
+          title: "Autenticacion fallida",
+          timestamp: "2026-06-18 10:06:19",
+          agent: "Support Triage",
+          type: "Seguridad",
+          description: "Token de acceso expirado al consultar la base de conocimiento.",
+          context: "tenant: nova, token_kid: kb-04, endpoint: /knowledge/search",
+          action: "Renovar credenciales del conector y habilitar refresco automatico previo a expiracion."
+        },
+        e6: {
+          title: "Respuesta vacia del scoring",
+          timestamp: "2026-06-18 10:31:47",
+          agent: "Pipeline Qualifier",
+          type: "Conectividad",
+          description: "El servicio externo devolvio 200 sin contenido util.",
+          context: "request_id: pq-6602, vendor: scorex, body_length: 0",
+          action: "Validar contrato de respuesta y aplicar proveedor secundario cuando body_length sea cero."
         }
       };
 
@@ -1116,6 +1237,11 @@
         elements.contractDetailModal.classList.remove("flex");
       }
 
+      function closeErrorDetailModal() {
+        elements.errorDetailModal.classList.add("hidden");
+        elements.errorDetailModal.classList.remove("flex");
+      }
+
       function openUserModal(userId) {
         const user = userRecords[userId];
         if (!user) {
@@ -1166,9 +1292,35 @@
         elements.contractDetailModal.classList.add("flex");
       }
 
+      function openErrorDetailModal(errorId) {
+        const error = errorRecords[errorId];
+        if (!error) {
+          return;
+        }
+
+        elements.modalErrorTitle.textContent = error.title;
+        elements.modalErrorTimestamp.textContent = error.timestamp;
+        elements.modalErrorAgent.textContent = error.agent;
+        elements.modalErrorType.textContent = error.type;
+        elements.modalErrorDescription.textContent = error.description;
+        elements.modalErrorContext.textContent = error.context;
+        elements.modalErrorAction.textContent = error.action;
+
+        elements.errorDetailModal.classList.remove("hidden");
+        elements.errorDetailModal.classList.add("flex");
+      }
+
       function applyTheme() {
-        document.documentElement.classList.toggle("dark", state.theme === "dark");
-        elements.themeToggle.textContent = state.theme === "dark" ? "Light mode" : "Dark mode";
+        const isDark = state.theme === "dark";
+        document.documentElement.classList.toggle("dark", isDark);
+        elements.themeToggle.setAttribute("aria-checked", String(isDark));
+        elements.themeToggleKnob.classList.toggle("translate-x-0", isDark);
+        elements.themeToggleKnob.classList.toggle("translate-x-6", !isDark);
+        elements.themeToggle.setAttribute("title", isDark ? "Modo oscuro" : "Modo claro");
+        elements.themeMoonIcon.classList.toggle("text-brand-200", isDark);
+        elements.themeMoonIcon.classList.toggle("text-slate-600", !isDark);
+        elements.themeSunIcon.classList.toggle("text-amber-500", !isDark);
+        elements.themeSunIcon.classList.toggle("text-slate-500", isDark);
       }
 
       function setSidebar(open) {
@@ -1271,6 +1423,13 @@
         });
       });
 
+      elements.errorDetailButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          closeErrorMenus();
+          openErrorDetailModal(button.dataset.errorDetail);
+        });
+      });
+
       elements.closeUserModalButton.addEventListener("click", () => {
         closeUserModal();
       });
@@ -1281,6 +1440,10 @@
 
       elements.closeContractModalButton.addEventListener("click", () => {
         closeContractDetailModal();
+      });
+
+      elements.closeErrorModalButton.addEventListener("click", () => {
+        closeErrorDetailModal();
       });
 
       elements.userDetailModal.addEventListener("click", (event) => {
@@ -1298,6 +1461,12 @@
       elements.contractDetailModal.addEventListener("click", (event) => {
         if (event.target === elements.contractDetailModal) {
           closeContractDetailModal();
+        }
+      });
+
+      elements.errorDetailModal.addEventListener("click", (event) => {
+        if (event.target === elements.errorDetailModal) {
+          closeErrorDetailModal();
         }
       });
 
@@ -1329,6 +1498,7 @@
           closeUserModal();
           closeAgentConfigModal();
           closeContractDetailModal();
+          closeErrorDetailModal();
         }
       });
 
