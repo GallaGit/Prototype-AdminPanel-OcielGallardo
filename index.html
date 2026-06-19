@@ -7,38 +7,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              fontFamily: {
-                sans: ["Manrope", "sans-serif"]
-              },
-              colors: {
-                brand: {
-                  50: "#effbfd",
-                  100: "#d5f4f8",
-                  500: "#1d9eb5",
-                  600: "#177f93",
-                  700: "#176677",
-                  900: "#194552"
-                }
-              },
-              boxShadow: {
-                panel: "0 16px 40px -24px rgba(15, 23, 42, 0.28)"
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Manrope", "sans-serif"]
+            },
+            colors: {
+              brand: {
+                50: "#effbfd",
+                100: "#d5f4f8",
+                500: "#1d9eb5",
+                600: "#177f93",
+                700: "#176677",
+                900: "#194552"
               }
+            },
+            boxShadow: {
+              panel: "0 16px 40px -24px rgba(15, 23, 42, 0.28)"
             }
           }
+        }
       };
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="h-full bg-stone-100 font-sans text-slate-900 transition-colors duration-[500ms] dark:bg-slate-950 dark:text-slate-100">
-    <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.08),_transparent_35%)] transition-colors duration-[500ms] dark:bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.18),_transparent_35%)]">
+  <body class="h-full bg-stone-200 font-sans text-slate-800 transition-colors duration-[500ms] dark:bg-slate-950 dark:text-slate-100">
+    <div class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.12),_transparent_38%)] transition-colors duration-[500ms] dark:bg-[radial-gradient(circle_at_top,_rgba(29,158,181,0.22),_transparent_35%)]">
       <div id="mobile-backdrop" class="fixed inset-0 z-30 hidden bg-slate-950/60 lg:hidden"></div>
 
-      <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col border-r border-stone-200 bg-white/95 px-4 py-5 shadow-panel transition-transform duration-300 dark:border-slate-800 dark:bg-slate-900/95 lg:translate-x-0">
+      <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col border-r border-stone-200 bg-stone-50/95 px-4 py-5 shadow-panel transition-transform duration-300 dark:border-slate-800 dark:bg-slate-900/95 lg:translate-x-0">
         <div class="flex items-center justify-between border-b border-stone-200 pb-4 dark:border-slate-800">
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-600">AgentHub</p>
@@ -87,7 +87,7 @@
       </aside>
 
       <div class="flex min-w-0 flex-1 flex-col lg:pl-72">
-        <header class="sticky top-0 z-20 border-b border-stone-200 bg-stone-100/90 backdrop-blur transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-950/90">
+        <header class="sticky top-0 z-20 border-b border-stone-200 bg-stone-200/90 backdrop-blur transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-950/90">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-4 lg:px-8">
             <div class="flex items-center gap-3">
               <button id="open-sidebar" type="button" class="rounded-2xl border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:hidden">Menu</button>
@@ -117,7 +117,7 @@
 
         <main id="main-content" class="min-h-[calc(100vh-89px)] overflow-y-auto px-4 py-6 lg:h-[calc(100vh-89px)] lg:px-8 lg:py-8">
           <div class="mx-auto max-w-7xl space-y-8">
-            <section id="dashboard" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-white/90 p-6 shadow-panel transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-900/80">
+            <section id="dashboard" class="scroll-mt-28 rounded-3xl border border-stone-200 bg-stone-50/95 p-6 shadow-panel transition-colors duration-[500ms] dark:border-slate-800 dark:bg-slate-900/80">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Section 01</p>
               <h3 class="mt-2 text-2xl font-bold">Dashboard</h3>
               <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Resumen financiero y operativo con actividad semanal hardcodeada.</p>
@@ -175,16 +175,16 @@
                   </div>
                 </article>
               </div>
-              <div class="mt-6 w-full rounded-2xl border border-dashed border-stone-300 bg-stone-50 p-6 transition-colors duration-[500ms] dark:border-slate-700 dark:bg-slate-950/60">
+              <div class="mt-6 w-full rounded-2xl border border-dashed border-stone-300 bg-stone-100 p-6 transition-colors duration-[500ms] dark:border-slate-700 dark:bg-slate-950/60">
                 <p class="text-sm font-semibold">Grafico de actividad semanal</p>
                 <div class="mt-4 grid grid-cols-7 items-end gap-3">
-                  <div class="h-24 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
-                  <div class="h-28 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
-                  <div class="h-20 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
-                  <div class="h-32 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
-                  <div class="h-36 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
-                  <div class="h-28 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
-                  <div class="h-40 rounded-xl bg-brand-200 dark:bg-brand-700"></div>
+                  <div class="h-24 rounded-xl bg-brand-500/75 dark:bg-brand-700"></div>
+                  <div class="h-28 rounded-xl bg-brand-500/75 dark:bg-brand-700"></div>
+                  <div class="h-20 rounded-xl bg-brand-500/75 dark:bg-brand-700"></div>
+                  <div class="h-32 rounded-xl bg-brand-500/75 dark:bg-brand-700"></div>
+                  <div class="h-36 rounded-xl bg-brand-500/75 dark:bg-brand-700"></div>
+                  <div class="h-28 rounded-xl bg-brand-500/75 dark:bg-brand-700"></div>
+                  <div class="h-40 rounded-xl bg-brand-500/75 dark:bg-brand-700"></div>
                 </div>
               </div>
             </section>
@@ -194,7 +194,7 @@
               <h3 class="mt-2 text-2xl font-bold">User Management</h3>
               <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Gestion de usuarios con datos hardcodeados, plan y estado actual.</p>
               <div class="mt-6 overflow-x-auto rounded-2xl border border-stone-200 transition-colors duration-[500ms] dark:border-slate-700">
-                <table class="min-w-[760px] divide-y divide-stone-200 text-sm dark:divide-slate-700">
+                <table class="w-full min-w-[760px] divide-y divide-stone-200 text-sm dark:divide-slate-700">
                   <thead class="bg-stone-50 transition-colors duration-[500ms] dark:bg-slate-800">
                     <tr>
                       <th class="px-4 py-3 text-left font-semibold">Nombre</th>
